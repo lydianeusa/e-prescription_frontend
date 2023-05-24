@@ -1,0 +1,55 @@
+#banner {
+  background-image: url("/public/img/banner.png");
+  color: white;
+}
+#banner h1 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+#banner div {
+  display: flex;
+  justify-content: space-around;
+}
+#banner button {
+  border-radius: 10px;
+  background-color: rgb(168, 196, 237);
+  margin: 30px;
+}
+#banner .mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+#presentation ul {
+  display: block;
+}
+#presentation li {
+  font-size: 1.3rem;
+  padding-top: 40px;
+}
+#presentation a {
+  font-size: 1.3rem;
+}
+#presentation .purple {
+  color: purple;
+}
+
+#services img {
+  width: 100px;
+  height: 100px;
+}
+#services h2 {
+  padding: 40px;
+}
+#services h3 {
+  padding-bottom: 40px;
+}
+
+#testimonials div {
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+#testimonials h3 {
+  color: purple;
+}/*# sourceMappingURL=Home.css.map */

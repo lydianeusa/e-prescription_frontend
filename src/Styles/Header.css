@@ -1,0 +1,18 @@
+header {
+  text-align: center;
+  background-color: #0e3958;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  font-size: 1.2rem;
+  color: white;
+  padding: 0 20px;
+}
+
+header ul li:not(:last-child) {
+  border-right: 1px solid white;
+}
+
+header img {
+  height: 120px;
+}/*# sourceMappingURL=Header.css.map */

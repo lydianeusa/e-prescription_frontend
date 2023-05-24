@@ -1,0 +1,9 @@
+.delivery ul {
+  display: block;
+  list-style: disc;
+}
+
+.delivery p {
+  font-size: 1.2rem;
+  color: purple;
+}/*# sourceMappingURL=Delivery.css.map */

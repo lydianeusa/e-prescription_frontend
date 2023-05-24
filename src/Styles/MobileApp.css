@@ -1,0 +1,11 @@
+h1 {
+  text-align: center;
+}
+
+.mobilePic {
+  display: flex;
+  align-items: center;
+}
+.mobilePic img {
+  width: 20rem;
+}/*# sourceMappingURL=MobileApp.css.map */

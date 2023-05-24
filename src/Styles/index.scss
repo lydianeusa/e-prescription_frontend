@@ -1,0 +1,71 @@
+@import "../Variables/variables";
+
+/* REGLES CSS - FONT-FACE */
+@font-face {
+  font-family: "Lato-Regular";
+  src: url(../fonts/Lato/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Lato-Light";
+  src: url(../fonts/Lato/Lato-Light.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+
+/* CUSTOM HTML ELEMENTS */
+
+body {
+  font-family: "Lato-Regular";
+  color: $darkBlue;
+}
+
+h1{
+  font-size: 1.7rem;
+  padding-top: 40px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  padding: 20px;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+main{
+  text-align: center;
+  min-height: 60vh;
+}
+
+section {
+  padding-top: 50px;
+}
+
+/* COMPONENTS */
+
+
+a {
+  text-decoration: none;
+  color: #1078ab;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+input{
+  margin: 10px;
+}
+
+button{
+  margin: 10px;
+}
+
+

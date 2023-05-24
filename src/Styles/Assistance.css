@@ -1,0 +1,26 @@
+h1 {
+  text-align: center;
+}
+
+.assistance {
+  display: flex;
+  align-items: center;
+}
+.assistance .support {
+  width: 25rem;
+  margin-right: 7rem;
+}
+.assistance .logo {
+  width: 5rem;
+}
+
+i {
+  font-size: 3rem;
+  padding: 0 1rem;
+  color: blue;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+}/*# sourceMappingURL=Assistance.css.map */

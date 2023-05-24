@@ -1,0 +1,15 @@
+header{
+  height: 200px;
+  background-color: rgb(244, 212, 170);
+}
+
+ul{
+  display: flex;
+  list-style: none;
+  justify-content: space-between; 
+}
+
+link{
+  text-decoration: none;
+}
+

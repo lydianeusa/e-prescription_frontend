@@ -1,0 +1,39 @@
+@import "../Variables/variables";
+
+
+footer {
+    background-color: $darkBlue;
+    color: white;
+}
+
+footer p{
+    color: white;
+    padding-top: 0;
+}
+
+footer div {
+padding: 20px 10px 5px 10px;
+}
+
+footer ul {
+padding: 0;
+display: block;
+}
+
+footer a{
+    color:aliceblue;
+}
+
+footer img {
+    height: 150px;
+}
+
+.logo{
+    display: inline;
+}
+
+.logo i{
+font-size: 3rem;
+padding: 0.5rem;
+color: white;
+}
