@@ -1,3 +1,7 @@
 .displayPrescription p {
   margin-bottom: 0;
+}
+
+.displayPrescription a {
+  color: #0e3958;
 }/*# sourceMappingURL=DisplayPrescriptions.css.map */

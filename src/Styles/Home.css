@@ -30,6 +30,9 @@
 #presentation a {
   font-size: 1.3rem;
 }
+#presentation a:hover {
+  color: purple;
+}
 #presentation .purple {
   color: purple;
 }
@@ -43,6 +46,9 @@
 }
 #services h3 {
   padding-bottom: 40px;
+}
+#services a:hover {
+  color: purple;
 }
 
 #testimonials div {

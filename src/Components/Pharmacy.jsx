@@ -9,9 +9,10 @@ const Pharmacy =()=>{
     <Header/>
     <main className="pharmacy">
       <ul>
-        <li><Link to="/patientslist/">Lise des patients</Link></li>
-        <li><Link to="/prescriptionslist">Liste des ordonnances</Link></li>
-    </ul>
+        <li><button className="btn-1"><Link to="/patientslist">Lise des patients</Link></button></li>
+        <li><button className="btn-1"><Link to="/prescriptionslist">Liste des ordonnances</Link></button></li>
+      </ul>
+      <img src="img/pharmacian.png" alt="Pharmacian" />
     </main>
     <Footer/>
     </>

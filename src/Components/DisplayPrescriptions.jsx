@@ -33,13 +33,13 @@ const DisplayPrescriptions = ()=>{
                     <p>Dosage : {e.dosage}</p>
                     <p>Fréquence: {e.frequency}</p>
                     <p>Durée: {e.duration}</p>
-                    <Link to={`/prescription/${e.id}`}>Voir l'ordonnance</Link>             
+                    <button className="btn-4"><Link to={`/prescription/${e.id}`}>Voir l'ordonnance</Link></button>             
                   </div>
                 </div>
               );
           })}
-        </main>
-           <Footer/>
+          </main>
+          <Footer/>
       </>
       )
     }

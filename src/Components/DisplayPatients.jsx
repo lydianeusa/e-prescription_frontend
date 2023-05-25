@@ -19,15 +19,15 @@ const DisplayPatients = ()=>{
 
     return (
         <>
-            <Header/>
-            <main>
+            <Header />
+            <main className="displayPatients">
                 <h1>Liste des Patients</h1>
 
                 {patientsData.map((patient) => {
                     return (
                     <div key={patient.id}>
                         <h2>{patient.first_name +" "+patient.last_name}</h2>
-                        <Link to={`/patient/${patient.id}`}>Voir le patient</Link>
+                        <button className="btn-2"><Link to={`/patient/${patient.id}`}>Voir le patient</Link></button>
                     </div>    
                     );
                 })}

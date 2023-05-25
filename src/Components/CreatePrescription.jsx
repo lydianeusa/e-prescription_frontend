@@ -45,7 +45,7 @@ const CreatePrescription = ()=>{
       <h1>Créer une ordonnance</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="medicine_name">Medicament</label>
+          <label htmlFor="medicine_name">Médicament</label>
           <input type="text" name="medicine_name"/>
         </div>
         <div>

@@ -8,12 +8,18 @@ const Home =()=>{
       <Header/>
       <main>
         <section id="banner">
-          <div className="container_fluid">
-            <h1>L'ORDONNANCE DIGITALE</h1>
-            <div className="mobile">
-                <img src="img/mobile-white.png" alt="" />
-                <a href="/mobile"><button>Application mobile</button></a>
-            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <h1>L'ORDONNANCE DIGITALE</h1>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <a href="/mobile"><img src="img/mobile-white.png" alt="" />
+                        <button>Application mobile</button></a>
+                    </div>
+                </div>
           </div>
         </section>
 
@@ -45,7 +51,7 @@ const Home =()=>{
                 <div class="row">
                     <div class="col-12">
                         <h2>COMMENT CA MARCHE?</h2>
-                        <iframe width="700" height="500" src="https://www.youtube-nocookie.com/embed/P74u1ToAT5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/P74u1ToAT5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
                     </div>
                 </div>
             </div>

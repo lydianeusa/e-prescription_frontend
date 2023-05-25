@@ -2,9 +2,8 @@
 
 header {
     text-align: center;
-    background-color: $darkBlue;
+    height: 150px;
 }
-
 
 .navbar-expand-lg .navbar-nav .nav-link {
     font-size: 1.2rem;
@@ -12,10 +11,27 @@ header {
     padding: 0 20px;
 }
 
-header ul li:not(:last-child) {
+.custom-navbar {
+    background-color: $darkBlue;
+  }
+
+.navbar-expand-lg .navbar-nav .nav-link:not(:last-child) {
     border-right: 1px solid white;
 }
 
 header img{
     height: 120px;
 }
+
+.collapse.show {
+    background-color: $darkBlue;
+    width: 100vw;
+}
+
+
+.menu,
+.menu:hover,
+.menu:focus{
+    color:#e471fc;
+}
+

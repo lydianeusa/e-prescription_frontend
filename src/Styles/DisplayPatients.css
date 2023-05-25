@@ -1,3 +1,8 @@
-main h2 {
+.displayPatients h2 {
   padding-bottom: 0;
+  font-size: 1.3rem;
+}
+
+.displayPatients a {
+  color: rgb(199, 223, 247);
 }/*# sourceMappingURL=DisplayPatients.css.map */

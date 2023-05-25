@@ -1,3 +1,10 @@
-main h2{
+@import "../Variables/variables";
+
+.displayPatients h2{
     padding-bottom: 0;
+    font-size: 1.3rem;
+}
+
+.displayPatients a{
+    color: $lightBlue;
 }

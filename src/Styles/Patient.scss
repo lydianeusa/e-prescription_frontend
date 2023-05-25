@@ -1,7 +1,17 @@
+@import "../Variables/variables";
+
 .patient a:link{
     font-size: 1.5rem;
 }
 
+.patient a{
+    color: $lightBlue;
+}
+
 .patient ul{
     margin-top: 20px;
+}
+
+.patient img{
+    width: 20rem;
 }

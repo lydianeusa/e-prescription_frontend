@@ -1,1 +1,1 @@
-{"version":3,"sources":["DisplayPrescriptions.scss","DisplayPrescriptions.css"],"names":[],"mappings":"AAAA;EACI,gBAAA;ACCJ","file":"DisplayPrescriptions.css"}
+{"version":3,"sources":["DisplayPrescriptions.scss","DisplayPrescriptions.css","../Variables/_variables.scss"],"names":[],"mappings":"AAEA;EACI,gBAAA;ACDJ;;ADIA;EACI,cEPO;ADMX","file":"DisplayPrescriptions.css"}

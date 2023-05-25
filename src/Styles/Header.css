@@ -1,6 +1,6 @@
 header {
   text-align: center;
-  background-color: #0e3958;
+  height: 150px;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -9,10 +9,25 @@ header {
   padding: 0 20px;
 }
 
-header ul li:not(:last-child) {
+.custom-navbar {
+  background-color: #0e3958;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:not(:last-child) {
   border-right: 1px solid white;
 }
 
 header img {
   height: 120px;
+}
+
+.collapse.show {
+  background-color: #0e3958;
+  width: 100vw;
+}
+
+.menu,
+.menu:hover,
+.menu:focus {
+  color: #e471fc;
 }/*# sourceMappingURL=Header.css.map */

@@ -39,8 +39,8 @@ const PrescriptionDetail = () => {
                     <p>Dosage : {prescription.dosage}</p>
                     <p>Fréquence: {prescription.frequency}</p>
                     <p>Durée: {prescription.duration}</p>
-                        <Link to={`/prescription/${prescription.id}/update`}>Modifier l'ordonannce</Link>
-                        <button onClick={() => handleDeleteClick(prescription)}>Supprimer l'ordonannce</button>
+                    <button className="btn-4"><Link to={`/prescription/${prescription.id}/update`}>Modifier l'ordonnance</Link></button>
+                        <button className="btn-3" onClick={() => handleDeleteClick(prescription)}>Supprimer l'ordonnance</button>
                     </div>
                 </>
                 ) : (

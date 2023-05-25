@@ -4,4 +4,12 @@
 
 .pharmacy ul {
   margin-top: 20px;
+}
+
+.pharmacy a {
+  color: rgb(199, 223, 247);
+}
+
+.pharmacy img {
+  width: 15rem;
 }/*# sourceMappingURL=Pharmacy.css.map */

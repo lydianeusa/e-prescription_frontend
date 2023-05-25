@@ -5,10 +5,10 @@ const Footer= () => {
     <footer>
               <div class="container">
             <div class="row">
-                <div class="col-12 col-md-4">
-                    <img src="img/e-ordo-12ter.png" alt=""/>
+                <div class="col-12 col-md-2 text-center">
+                    <a href="/"><img src="/img/e-ordo-12ter.png" alt="logo"/></a>
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-4 text-center">
                     <ul>
                         <li><a href="/about-us">A propos</a></li>
                         <li><a href="/assistance">Assistance</a></li>
@@ -19,7 +19,7 @@ const Footer= () => {
                         <li><a href="/pharmacieslist">Trouver une pharmacie</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-4 text-center">
                     <p>CONTACTEZ-NOUS</p>
                     <ul>
                         <li>43 rue Boursault</li>
@@ -28,7 +28,7 @@ const Footer= () => {
                         <li>info@e-prescription.fr</li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 col-md-2 text-center">
                     <div class="logo"> 
                         <a class="facebook" href="/"><i class="fa-brands fa-facebook"></i></a>
                         <a class="instagram" href="/"><i class="fa-brands fa-square-instagram"></i></a>

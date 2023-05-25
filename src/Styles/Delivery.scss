@@ -1,7 +1,13 @@
 .delivery ul{
     display: block;
-    list-style: disc;
+    list-style:none;
 }
+
+.delivery li{
+    padding-bottom: 15px;
+}
+
+
 
 .delivery p{
     font-size: 1.2rem;

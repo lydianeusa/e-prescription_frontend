@@ -42,11 +42,11 @@ const PatientDetail = () => {
                             <p>email : {patient.email}</p>
                         </div>
                         <div>
-                            <Link to={`/patient/${patient.id}/update`}>Modifier le patient</Link> 
+                        <button className="btn-5"><Link to={`/patient/${patient.id}/update`}>Modifier le patient</Link></button> 
                             <br /> 
-                            <Link to={`/prescription/${patient.id}`}>Voir l'ordonnance</Link>
+                            <button className="btn-4"><Link to={`/prescription/${patient.id}`}>Voir l'ordonnance</Link></button>
                         </div>
-                            <button onClick={() => handleDeleteClick(patient)}>Supprimer le patient</button>
+                            <button className="btn-3" onClick={() => handleDeleteClick(patient)}>Supprimer le patient</button>
                         
                     </>
                     ) : (

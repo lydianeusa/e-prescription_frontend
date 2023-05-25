@@ -1,4 +1,8 @@
 import "../Styles/Header.css";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 
@@ -6,35 +10,29 @@ const Header = () => {
   return (
     <div>
     <header>
-            <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img src="img/e-ordo-12ter.png" alt=""/>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                          <a class="nav-link" href="/">ACCUEIL</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="/physician">MEDECIN</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="/pharmacy">PHARMACIEN</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="/patient">PATIENT</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="/assistance">ASSISTANCE</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <Navbar collapseOnSelect expand="lg" variant="dark" className="custom-navbar">
+        <Container>
+          <Navbar.Brand href="/"><img src="/img/e-ordo-12ter.png" alt=""/></Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+            </Nav>
+            <Nav>
+            <NavDropdown title="Menu" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="/about-us">A propos</NavDropdown.Item>
+                <NavDropdown.Item href="/mobile">Application mobile</NavDropdown.Item>
+                <NavDropdown.Item href="/fees">Tarifs</NavDropdown.Item>
+                <NavDropdown.Item href="/delivery">Livraisons</NavDropdown.Item>
+              </NavDropdown>
+            <Nav.Link href="/" className="menu" >Accueil</Nav.Link>
+              <Nav.Link href="/physician" className="menu" active>Médecin</Nav.Link>
+              <Nav.Link href="/pharmacy" className="menu" >Pharmacien</Nav.Link>
+              <Nav.Link href="/patient" className="menu" >Patient</Nav.Link>
+              <Nav.Link href="/assistance" className="menu" >Assistance</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </header>
     </div>
   )
