@@ -65,7 +65,7 @@ ul {
 }
 
 input{
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 button{
@@ -389,3 +389,35 @@ button{
       width: 100%;
     }
 
+    .btn-6 {
+      width: 250px;
+      height: 70px;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 25px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+       box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+       7px 7px 20px 0px rgba(0,0,0,.1),
+       4px 4px 5px 0px rgba(0,0,0,.1);
+      outline: none;
+      background: rgb(96,9,240);
+      background: linear-gradient(0deg, rgba(96,9,240,1) 0%, rgba(129,5,240,1) 100%);
+      border: none;
+      
+    }
+    .btn-6:before {
+      height: 0%;
+      width: 2px;
+    }
+    .btn-6:hover {
+      box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                  -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+        inset -4px -4px 6px 0 rgba(255,255,255,.2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+    }
+    

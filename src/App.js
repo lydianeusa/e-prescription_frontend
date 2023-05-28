@@ -9,6 +9,9 @@ import Assistance from "./Components/Assistance";
 import MobileApp from "./Components/MobileApp";
 import Delivery from "./Components/Delivery";
 import Fees from "./Components/Fees";
+import Login from "./Components/Login";
+import SignUp from "./Components/Signup";
+
 
 import DisplayPhysicians from "./Components/DisplayPhysicians";
 import DisplayPharmacies from "./Components/DisplayPharmacies";
@@ -43,6 +46,9 @@ function App() {
                     <Route path="/mobile" element={<MobileApp />}/>
                     <Route path="/delivery" element={<Delivery/>}/>
                     <Route path="/fees" element={<Fees/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/sign-up" element={<SignUp/>}/>
+
 
                     <Route path="/physicianslist" element={<DisplayPhysicians />} />
                     <Route path="/pharmacieslist" element={<DisplayPharmacies />} />

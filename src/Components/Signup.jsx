@@ -2,14 +2,14 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 
-const Login= () => {
-  const handleSubmit=(event)=>{alert('connecté!')
+const SignUp= () => {
+  const handleSubmit=(event)=>{alert('inscrit!')
   event.preventDefault();
 
   const username = event.target.username.value;
   const password = event.target.password.value;
 
-  fetch("http://localhost:3001/api/users/login", {
+  fetch("http://localhost:3001/api/users/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,15 +19,10 @@ const Login= () => {
       password: password,
     })
   })
-  .then(response => response.json()) // Je transforme la réponse en JSON
-  .then(data => { // Je récupère les données de la réponse
-      
-      if (data.token) { // Si j'ai un token dans la réponse
-          const jwt = data.token; // Je récupère le token
-          localStorage.setItem("jwt", jwt); // Je stocke le token dans le localStorage
-          window.location.href = "http://localhost:3000/"; // Redirection vers la page account
-      } 
-    else {
+  .then((response) => {
+    if (response.status === 200) {
+      console.log("logged in");
+    } else {
       console.log("erreur");
     }
   });
@@ -38,7 +33,7 @@ const Login= () => {
   return (
     <div>
     <Header/>
-    <main className="login">
+    <main className="signUp">
       <h1>Connexion:</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -60,4 +55,4 @@ const Login= () => {
   )
 };
 
-export default Login;
+export default SignUp;
