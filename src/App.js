@@ -25,11 +25,7 @@ import PrescriptionDetail from "./Components/PrescriptionDetail"
 import CreatePatient from "./Components/CreatePatient";
 import UpdatePatient from "./Components/UpdatePatient";
 import PatientDetail from "./Components/PatientDetail";
-
-
-
-
-
+import SearchPatient from "./Components/SearchPatient";
 
 
 function App() {
@@ -62,6 +58,9 @@ function App() {
                     <Route path="/create-patient" element={<CreatePatient />}/>
                     <Route path="/patient/:id/update" element={<UpdatePatient />} />
                     <Route path="/patient/:id" element={<PatientDetail />} />
+                    <Route path="/search-patient" element={<SearchPatient />} />
+
+
                 </Routes>
         </BrowserRouter>
     </div>

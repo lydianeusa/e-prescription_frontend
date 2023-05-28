@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 
 const FindAPatient = () => {
@@ -9,15 +9,8 @@ const FindAPatient = () => {
     event.preventDefault();
     alert("Patient trouvé");
 
-    useEffect(() => {
-      fetch(`http://localhost:3001/api/patients?search=${search}`)
-      .then((patientJson)=>patientJson.json())
-      .then((patientJs)=>{
-      setPatientData(patientJs.data)
-  });
-},[])
-
-    fetch(`http://localhost:3000/patients?search=${search}`)
+    // Fetch patient data
+    fetch(`http://localhost:3001/api/patients?search=${search}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
@@ -37,6 +30,27 @@ const FindAPatient = () => {
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
   };
+
+  useEffect(() => {
+    // Code to run on component mount or when search changes
+
+    // Fetch patient data
+    if (search) {
+      fetch(`http://localhost:3001/api/patients?search=${search}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.length > 0) {
+            const foundPatient = data[0];
+            setPatient(foundPatient);
+          } else {
+            setPatient(null);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching patient details", error);
+        });
+    }
+  }, [search]);
 
   return (
     <>

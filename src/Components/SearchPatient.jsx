@@ -1,50 +1,73 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "./Header";
-import { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
+import Footer from "./Footer";
 
 const SearchPatient = () => {
   const [patient, setPatient] = useState(null);
   const [searchPatient, setSearchPatient] = useState("");
+  const [showPatientInfo, setShowPatientInfo] = useState(false);
+  const [noPatientFound, setNoPatientFound] = useState(false); // Add state for no patient found
 
-  useEffect(() => {
-    fetch(`http://localhost:3001/api/patients?search=${searchPatient}`,{headers:{"Content-Type":"application/json"}})
+  const handleSearch = (e) => {
+    e.preventDefault();
+  
+    fetch(`http://localhost:3001/api/patients?search=${searchPatient}`, {
+      headers: { "Content-Type": "application/json" }
+    })
       .then((response) => response.json())
       .then((data) => {
-        if (data.data.length > 0) {
+        if (data && data.data && data.data.length > 0) {
           setPatient(data.data[0]);
+          setShowPatientInfo(true);
+          setNoPatientFound(false);
         } else {
           setPatient(null);
+          setShowPatientInfo(false);
+          setNoPatientFound(true);
         }
+      })
+      .catch((error) => {
+        console.error("Error fetching patient:", error);
+        setPatient(null);
+        setShowPatientInfo(false);
+        setNoPatientFound(true);
       });
-  }, [searchPatient]);
-
+  };
   
 
   return (
     <>
       <Header />
-      <input type="text" value={searchPatient} onChange={(e) => setSearchPatient(e.target.value)}
-        placeholder="Chercher patient"
-      />
-      <button type="submit">Search</button>
-      {searchPatient && patient ? (
-        <div key={patient.id}>
-          <p>{patient.last_name}</p>
-          <p>{patient.first_name}</p>
-          <p>{patient.birth_date}</p>
-        </div>
-      ) : (
-        <p>Pas de patient trouvé</p>
-      )}
-
-        <Link to={`/patient/${patient.id}`}>Voir le patient</Link>
-        <Link to={`/patient/${patient.id}/update`}>modifier le patient</Link>
+      <main className="searchPatient">
+        <form onSubmit={handleSearch}>
+          <input
+            type="text"
+            value={searchPatient}
+            onChange={(e) => setSearchPatient(e.target.value)}
+            placeholder="Chercher patient"
+          />
+          <br />
+          <button className="btn-2" type="submit">
+            Search
+          </button>
+        </form>
+        {showPatientInfo ? (
+          <div key={patient?.id}>
+            <p>{patient?.last_name}</p>
+            <p>{patient?.first_name}</p>
+            <p>{patient?.birth_date}</p>
+            <button className="btn-5">
+              <Link to={`/patient/${patient?.id}`}>Voir le patient</Link>
+            </button>
+          </div>
+        ) : (
+          noPatientFound && <p>Pas de patient trouvé</p> // Render "No patient found" message when no matching data is found
+        )}
+      </main>
+      <Footer />
     </>
   );
 };
 
 export default SearchPatient;
-
-  
-
-   

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import {Link} from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 
 const TrouvePatient = () => {
   const [search, setSearch] = useState("");
   const [patient, setPatient] = useState(null);
   const [error, setError] = useState(null);
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -43,6 +45,7 @@ const TrouvePatient = () => {
     setSearch("");
   };
 
+
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
   };
@@ -67,10 +70,11 @@ const TrouvePatient = () => {
             <p>First Name: {patient.first_name}</p>
             <p>Date of Birth: {patient.birth_date}</p>
             <p>Email: {patient.email}</p>
+            <Link to={`/patient/${patient.id}`}>Voir le patient</Link>
+            <Link to={`/patient/${patient.id}/update`}>modifier le patient</Link>
           </div>
         )}
-        <Link to={`/patient/${patient.id}`}>Voir le patient</Link>
-        <Link to={`/patient/${patient.id}/update`}>modifier le patient</Link>
+     
       </>
     </>
   );
