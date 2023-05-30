@@ -1,9 +1,11 @@
 import Header from "./Header";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 
 const Login= () => {
-  const handleSubmit=(event)=>{alert('connecté!')
+  const navigate= useNavigate()
+  const handleSubmit=(event)=>{
   event.preventDefault();
 
   const username = event.target.username.value;
@@ -25,7 +27,9 @@ const Login= () => {
       if (data.token) { // Si j'ai un token dans la réponse
           const jwt = data.token; // Je récupère le token
           localStorage.setItem("jwt", jwt); // Je stocke le token dans le localStorage
-          window.location.href = "http://localhost:3000/"; // Redirection vers la page account
+          navigate ("/")
+
+          // window.location.href = "http://localhost:3000/"; // Redirection vers la page account
       } 
     else {
       console.log("erreur");
@@ -49,7 +53,7 @@ const Login= () => {
         <div>
           <label htmlFor="password">Mot de passe</label>
           <br />
-          <input type="text" name="password"/>
+          <input type="password" name="password"/>
         </div>
         <button className="btn-2" type="submit">submit</button>
       </form>

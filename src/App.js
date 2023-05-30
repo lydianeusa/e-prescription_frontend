@@ -20,12 +20,15 @@ import DisplayPrescriptions from "./Components/DisplayPrescriptions";
 
 import CreatePrescription from "./Components/CreatePrescription";
 import UpdatePrescription from "./Components/UpdatePrescription";
-import PrescriptionDetail from "./Components/PrescriptionDetail"
+import PrescriptionDetail from "./Components/PrescriptionDetail";
 
 import CreatePatient from "./Components/CreatePatient";
 import UpdatePatient from "./Components/UpdatePatient";
 import PatientDetail from "./Components/PatientDetail";
-import SearchPatient from "./Components/SearchPatient";
+
+import FindAPatient from "./Components/FindAPatient";
+import FindAPharmacy from "./Components/FindAPharmacy";
+import FindAPhysician from "./Components/FindAPhysician";
 
 
 function App() {
@@ -58,7 +61,9 @@ function App() {
                     <Route path="/create-patient" element={<CreatePatient />}/>
                     <Route path="/patient/:id/update" element={<UpdatePatient />} />
                     <Route path="/patient/:id" element={<PatientDetail />} />
-                    <Route path="/search-patient" element={<SearchPatient />} />
+                    <Route path="/find-patient" element={<FindAPatient />} />
+                    <Route path="/find-pharmacy" element={<FindAPharmacy />} />
+                    <Route path="/find-physician" element={<FindAPhysician />} />
 
 
                 </Routes>

@@ -6,15 +6,20 @@ import "../Styles/Pharmacy.css";
 const Pharmacy =()=>{
   return(
     <>
-    <Header/>
-    <main className="pharmacy">
-      <ul>
-        <li><button className="btn-1"><Link to="/patientslist">Lise des patients</Link></button></li>
-        <li><button className="btn-1"><Link to="/prescriptionslist">Liste des ordonnances</Link></button></li>
-      </ul>
-      <img src="img/pharmacian.png" alt="Pharmacian" />
-    </main>
-    <Footer/>
+      <Header/>
+      <div  className="pharmacy">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
+              <button className="btn-1"><Link to="/find-patient">Trouver un patient</Link></button>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+              <img src="img/pharmacian.png" alt="Pharmacian" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer/>
     </>
   )
 }

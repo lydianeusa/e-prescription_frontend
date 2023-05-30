@@ -61,7 +61,7 @@ input {
 }
 
 button {
-  margin: 10px;
+  margin: 1.5rem;
 }
 
 .btn-1 {
@@ -72,20 +72,18 @@ button {
   height: 50px;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 25px;
   font-family: "Lato", sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
   display: inline-block;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
 
 .btn-1:hover {
-  background: rgb(0, 3, 255);
-  background: linear-gradient(0deg, rgb(0, 3, 255) 0%, rgb(2, 126, 251) 100%);
+  background: rgb(54, 104, 230);
+  background: linear-gradient(0deg, rgb(116, 110, 228) 0%, rgb(92, 90, 219) 100%);
 }
 
 .btn-2 {

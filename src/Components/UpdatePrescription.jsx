@@ -35,7 +35,7 @@ const UpdatePrescription = () => {
         });
     };
   
-    const handleSubmit = (event) => { alert('ordonnance modifiée');
+    const handleSubmit = (event) => {
       event.preventDefault();
   
       const medicine_name = event.target.medicine_name.value;

@@ -1,15 +1,10 @@
-h1 {
-  text-align: center;
-}
-
-.mobilePic {
-  display: flex;
-  align-items: center;
+.mobilePic h1 {
+  padding-bottom: 3rem;
 }
 .mobilePic img {
   width: 20rem;
 }
 .mobilePic p {
-  padding: 160px;
+  padding: 1rem;
   font-size: 1.1rem;
 }/*# sourceMappingURL=MobileApp.css.map */

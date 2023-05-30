@@ -1,13 +1,13 @@
+.patient {
+  margin-top: 5rem;
+}
+
 .patient a:link {
   font-size: 1.5rem;
 }
 
 .patient a {
   color: rgb(199, 223, 247);
-}
-
-.patient ul {
-  margin-top: 20px;
 }
 
 .patient img {

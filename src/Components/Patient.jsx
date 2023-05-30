@@ -8,11 +8,19 @@ const Patient= () => {
     <>
     <Header/>
     <main className="patient">
-        <ul>
-          <li><button className="btn-1"><Link to="/physicianslist">Liste des médecins</Link></button></li>
-          <li><button className="btn-1"><Link to="/pharmacieslist">Liste des pharmacies</Link></button></li>
-        </ul>
-        <img src="img/patient.png" alt="patient" />
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+              <button className="btn-1"><Link to="/find-physician">Trouver un médecin</Link></button>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4">
+              <img src="img/patient.png" alt="patient" />
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <button className="btn-1"><Link to="/find-pharmacy">Trouver une pharmacie</Link></button>
+            </div>
+          </div>
+        </div>
     </main>
     <Footer/>
     </>

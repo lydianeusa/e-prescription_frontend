@@ -8,13 +8,22 @@ const Physician =()=>{
     <>
       <Header />
       <main className="physician">
-        <ul>
-          <li><button className="btn-1"><Link to="/patientslist">Liste des patients</Link></button></li>
-          <li><button className="btn-1"><Link to="/create-patient">Créer un patient</Link></button></li>
-          <li><button className="btn-1"><Link to="/prescriptionslist">Liste des ordonnances</Link></button></li>
-          <li><button className="btn-1"><Link to="/create-prescription">Créer une ordonnance</Link></button></li>
-        </ul>
-        <img src="img/physicianter.png" alt="" />
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-4">
+              <button className="btn-1"><Link to="/find-patient">Trouver un patient</Link></button>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4">
+              <button className="btn-1"><Link to="/create-patient">Créer un patient</Link></button>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4">
+              <button className="btn-1"><Link to="/create-prescription">Créer une ordonnance</Link></button>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+              <img src="img/physicianter.png" alt="" />
+            </div>
+          </div>
+        </div>
       </main>
       <Footer/>
     </>

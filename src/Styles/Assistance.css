@@ -2,10 +2,10 @@ h1 {
   text-align: center;
 }
 
-.assistance {
-  display: flex;
-  align-items: center;
+.support h1 {
+  padding: 5rem;
 }
+
 .assistance .support {
   width: 25rem;
   margin-right: 7rem;
@@ -18,9 +18,4 @@ i {
   font-size: 3rem;
   padding: 0 1rem;
   color: blue;
-}
-
-.phone {
-  display: flex;
-  align-items: center;
 }/*# sourceMappingURL=Assistance.css.map */
