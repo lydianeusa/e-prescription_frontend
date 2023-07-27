@@ -1,0 +1,46 @@
+header {
+    text-align: center;
+    height: 150px;
+
+    img{
+        height: 120px;
+    }
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    font-size: 1.4rem;
+    color: white;
+    padding: 0 20px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:not(:last-child) {
+    border-right: 1px solid white;
+}
+
+.custom-navbar {
+    background-color: rgb(8, 8, 97);
+
+    button{
+        border-color: white;
+        border-width: medium;
+    }
+    .menu,
+    .menu:hover,
+    .menu:focus{
+        color: rgb(245, 123, 221);
+    }
+    .dropdown{
+        color:darkblue;
+    }
+  }
+
+#collasible-nav-dropdown:hover
+   {color: rgb(245, 123, 221);
+}
+
+
+.collapse.show {
+    background-color: darkblue;
+    width: 100vw;
+}
+

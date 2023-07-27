@@ -1,0 +1,15 @@
+.delivery ul {
+  display: block;
+  list-style: none;
+}
+.delivery li {
+  padding-bottom: 15px;
+  font-size: 1.12rem;
+}
+.delivery p {
+  font-size: 1.2rem;
+  color: purple;
+}
+.delivery a:hover {
+  color: purple;
+}/*# sourceMappingURL=Delivery.css.map */

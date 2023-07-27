@@ -1,34 +1,34 @@
 import {BrowserRouter,Route,Routes} from "react-router-dom";
 
-import Home from "./Components/Home"
-import Physician from "./Components/Physician"
-import Pharmacy from "./Components/Pharmacy"
-import Patient from "./Components/Patient"
-import AboutUs from "./Components/AboutUs";
-import Assistance from "./Components/Assistance";
-import MobileApp from "./Components/MobileApp";
-import Delivery from "./Components/Delivery";
-import Fees from "./Components/Fees";
-import Login from "./Components/Login";
-import SignUp from "./Components/Signup";
+import Home from "./Components/Pages/Home/Home"
+import Physician from "./Components/Pages/Physician/Physician"
+import Pharmacy from "./Components/Pages/Pharmacy/Pharmacy"
+import Patient from "./Components/Pages/Patient/Patient"
+import AboutUs from "./Components/Pages/AboutUS/AboutUs";
+import Assistance from "./Components/Pages/Assistance/Assistance";
+import MobileApp from "./Components/Pages/MobileApp/MobileApp";
+import Delivery from "./Components/Pages/Delivery/Delivery";
+import Fees from "./Components/Pages/Fees/Fees";
+import Login from "./Components/Pages/Login/Login";
+import SignUp from "./Components/Pages/SignUp/SignUp";
 
 
-import DisplayPhysicians from "./Components/DisplayPhysicians";
-import DisplayPharmacies from "./Components/DisplayPharmacies";
-import DisplayPatients from "./Components/DisplayPatients";
-import DisplayPrescriptions from "./Components/DisplayPrescriptions";
+import DisplayPhysicians from "./Components/Pages/DisplayPhysicians/DisplayPhysicians";
+import DisplayPharmacies from "./Components/Pages/DisplayPharmacies/DisplayPharmacies";
+import DisplayPatients from "./Components/Pages/DisplayPatients/DisplayPatients";
+import DisplayPrescriptions from "./Components/Pages/DisplayPrescriptions/DisplayPrescriptions";
 
-import CreatePrescription from "./Components/CreatePrescription";
-import UpdatePrescription from "./Components/UpdatePrescription";
-import PrescriptionDetail from "./Components/PrescriptionDetail";
+import CreatePrescription from "./Components/Pages/CreatePrescription/CreatePrescription";
+import UpdatePrescription from "./Components/Pages/UpdatePrescription/UpdatePrescription";
+import PrescriptionDetail from "./Components/Pages/PrescriptionDetail/PrescriptionDetail";
 
-import CreatePatient from "./Components/CreatePatient";
-import UpdatePatient from "./Components/UpdatePatient";
-import PatientDetail from "./Components/PatientDetail";
+import CreatePatient from "./Components/Pages/CreatePatient/CreatePatient";
+import UpdatePatient from "./Components/Pages/UpdatePatient/UpdatePatient";
+import PatientDetail from "./Components/Pages/PatientDetail/PatientDetail";
 
-import FindAPatient from "./Components/FindAPatient";
-import FindAPharmacy from "./Components/FindAPharmacy";
-import FindAPhysician from "./Components/FindAPhysician";
+import FindAPatient from "./Components/Pages/FindAPatient/FindAPatient";
+import FindAPharmacy from "./Components/Pages/FindAPharmacy/FindAPharmacy";
+import FindAPhysician from "./Components/Pages/FindAPhysician/FindAPhysician";
 
 
 function App() {

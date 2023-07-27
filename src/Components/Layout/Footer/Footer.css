@@ -1,0 +1,36 @@
+footer {
+  background-color: rgb(8, 8, 97);
+  color: white;
+}
+footer p {
+  color: white;
+  padding-top: 0;
+}
+footer div {
+  padding: 20px 10px 5px 10px;
+}
+footer ul {
+  padding: 0;
+  display: block;
+}
+footer a {
+  color: aliceblue;
+}
+footer a:hover {
+  color: rgb(245, 123, 221);
+}
+footer .menu a {
+  font-size: 1.3rem;
+}
+footer img {
+  height: 150px;
+}
+
+.logo {
+  display: inline;
+}
+.logo i {
+  font-size: 3rem;
+  padding: 0.5rem;
+  color: white;
+}/*# sourceMappingURL=Footer.css.map */

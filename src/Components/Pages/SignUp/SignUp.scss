@@ -1,0 +1,27 @@
+.signUp{
+    .role{
+    width: 13rem;
+    }
+
+    label{
+        text-align: left;
+        width: 10.8rem;
+        line-height: 1.9rem;
+        margin-bottom: 10px;
+    }
+
+    input{
+        height: 1.8rem;
+        width: 12rem;
+    }
+
+    select{
+        height: 1.8rem;
+        width: 10rem;
+        color: blue;
+    }
+
+    ::placeholder{
+        color: gray;
+    }
+}

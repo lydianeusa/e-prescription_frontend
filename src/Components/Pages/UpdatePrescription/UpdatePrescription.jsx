@@ -1,0 +1,130 @@
+import { useEffect, useState} from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import Header from "../../Layout/Header/Header";
+import Footer from "../../Layout/Footer/Footer";
+
+const UpdatePrescription = () => {
+  const navigate = useNavigate();
+  // Autorisation JWT
+  useEffect(() => {
+      const token = localStorage.getItem("jwt");
+      if (!token) {
+          navigate("/login");
+          return;
+      }
+      // Décode le token JWT pour récupérer la date d'expiration
+      const jwtData = token.split(".")[1];
+      const decodedJwt = JSON.parse(atob(jwtData));
+      const expirationTime = decodedJwt.exp * 1000; // Convertit la date d'expiration en millisecondes
+
+      // Redirige vers la page de connexion lorsque le jeton expire
+      const timeoutId = setTimeout(() => {
+          navigate("/login");
+      }, expirationTime - Date.now()); // Définit le délai en millisecondes avant la redirection
+
+      // Nettoie le timeout lorsque le composant est démonté
+      return () => clearTimeout(timeoutId);
+  }, [navigate]);
+
+
+  const [prescription, setPrescription]= useState (null)
+
+  const { id } = useParams();
+
+    useEffect(() => {
+      fetch(`http://localhost:3001/api/prescriptions/${id}`)
+        .then((responseJson) => responseJson.json())
+        .then((responseJs) => {
+          setPrescription(responseJs.data);
+        });
+    }, [id]);
+
+
+
+    // const handleDeleteClick = () => {
+    // fetch(`http://localhost:3001/api/prescriptions/${id}`, {
+    //     method: "DELETE" ,
+    //   })
+      
+    //     .then(() => {
+    //       navigate(0);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // };
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+  
+      const medicine_name = event.target.medicine_name.value;
+      const dosage = event.target.dosage.value;
+      const frequency = event.target.frequency.value;
+      const duration = event.target.duration.value;
+
+      const token = localStorage.getItem("jwt");
+
+      fetch(`http://localhost:3001/api/prescriptions/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            medicine_name: medicine_name,
+            dosage: dosage,
+            frequency: frequency,
+            duration: duration
+          })
+  
+      }).then((response) => {
+        if (response.status === 200) {
+          console.log("ordonnance modifiée");
+        } else {
+          console.log("erreur");
+        }
+      });
+    };
+
+    
+
+    return (
+        <>
+          <Header/>
+          <main>
+            {prescription ? (
+              <>
+                <h1>Mise à jour l'ordonnance :</h1>
+                <form onSubmit={handleSubmit}>
+                  <div>
+                  <label htmlFor="medicine_name">Nom du médicament</label><br />
+                    <input type="text" name="medicine_name" defaultValue={prescription.medicine_name} />
+                  </div>
+                  <div>
+                  <label htmlFor="dosage">Dosage</label><br />
+                    <input type="text" name="dosage" defaultValue={prescription.dosage} />
+                  </div>
+                  <div>
+                  <label htmlFor="frequency">Fréquence</label><br />
+                    <input type="text" name="frequency" defaultValue={prescription.frequency} />
+                  </div>
+                  <div>
+                  <label htmlFor="duration">Durée</label><br />
+                    <input type="text" name="duration" defaultValue={prescription.duration} />
+                  </div>
+      
+                  <button type="submit" className="btn-4">Mettre à jour l'ordonnance</button>
+                </form>
+                {/* <button onClick ={() => handleDeleteClick(prescription)} className="btn-3">Supprimer l'ordonnance</button> */}
+              </>
+            ) : (
+              <p>L'ordonnance a été supprimée de la base de données.</p>
+            )}
+          </main>
+          <Footer/>
+      </>
+    )
+  };
+  
+  export default UpdatePrescription;

@@ -1,0 +1,44 @@
+footer {
+    background-color: rgb(8, 8, 97);
+    color: white;
+    
+    p{
+    color: white;
+    padding-top: 0;
+    }
+
+    div {
+    padding: 20px 10px 5px 10px;
+    }
+
+    ul {
+    padding: 0;
+    display: block;
+    }
+
+    a{
+    color:aliceblue;
+    }
+
+    a:hover{
+        color: rgb(245, 123, 221);
+    }
+
+    .menu a{
+    font-size: 1.3rem;
+    } 
+
+    img {
+    height: 150px;
+    }
+}
+
+.logo{
+    display: inline;
+    i{
+    font-size: 3rem;
+    padding: 0.5rem;
+    color: white;
+    }
+}
+

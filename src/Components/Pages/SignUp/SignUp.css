@@ -1,0 +1,24 @@
+.signUp .role {
+  width: 13rem;
+}
+.signUp label {
+  text-align: left;
+  width: 10.8rem;
+  line-height: 1.9rem;
+  margin-bottom: 10px;
+}
+.signUp input {
+  height: 1.8rem;
+  width: 12rem;
+}
+.signUp select {
+  height: 1.8rem;
+  width: 10rem;
+  color: blue;
+}
+.signUp ::-moz-placeholder {
+  color: gray;
+}
+.signUp ::placeholder {
+  color: gray;
+}/*# sourceMappingURL=Signup.css.map */
