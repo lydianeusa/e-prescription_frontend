@@ -31,6 +31,11 @@ const CreatePrescription = ()=>{
 
   const [searchPatient, setSearchPatient] = useState("");
   const [patient, setPatient] = useState(null);
+  const [searchPatientResults, setSearchPatientResults] = useState([]);
+  const [searchPhysician, setSearchPhysician] = useState("");
+  const [physician, setPhysician] = useState(null);
+  const [searchPhysicianResults, setSearchPhysicianResults] = useState([]);
+
 
   const handleSubmit=(event)=>{
     event.preventDefault();
@@ -68,9 +73,55 @@ const CreatePrescription = ()=>{
       } else {
         console.log("erreur");
       }
+    })
+    .catch((error) => {
+      console.error("Error creating prescription:", error);
     });
   };
 
+    const handleSearchPatient = (event) => {
+      event.preventDefault();
+      const searchQuery = searchPatient;
+      const token = localStorage.getItem("jwt");
+    fetch(`http://localhost:3001/api/patients?search=${searchQuery}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSearchPatientResults(data.data); // Update the search results state with the fetched data
+      })
+      .catch((error) => {
+        console.error("Error fetching patients:", error);
+        setSearchPatientResults([]); // If there is an error, set the search results to an empty array
+      });
+  };
+
+  const handleSearchPhysician = (event) => {
+    event.preventDefault();
+    const searchQuery = searchPhysician;
+    const token = localStorage.getItem("jwt");
+  
+    fetch(`http://localhost:3001/api/physicians?search=${searchQuery}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSearchPhysicianResults(data.data); // Update the search results state with the fetched data
+      })
+      .catch((error) => {
+        console.error("Error fetching physicians:", error);
+        setSearchPhysicianResults([]); // If there is an error, set the search results to an empty array
+      });
+  };
+  
   
   return (
     <div>
@@ -95,30 +146,81 @@ const CreatePrescription = ()=>{
           <input type="text" name="duration"/>
         </div>
         <div>
+          <input
+            type="text"
+            name="searchPhysician"
+            value={searchPhysician}
+            onChange={(e) => setSearchPhysician(e.target.value)}
+            placeholder="Nom du médecin"
+          />
+          <button type="button" onClick={handleSearchPhysician}>
+            Rechercher
+          </button>
+        </div>
+        <div>
+          {searchPhysicianResults.map((physician) => (
+            <div key={physician?.id}>
+              <p>
+                {physician?.last_name} {physician?.first_name}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setPhysician(physician); // Set the selected physician
+                  // Set the selected physician's ID in the input field
+                  const physicianIdInput = document.getElementsByName("PhysicianId")[0];
+                  physicianIdInput.value = physician?.id || "";
+                }}
+              >
+                Sélectionner
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div>
           <label htmlFor="PhysicianId">Pour le médecin:</label><br />
-          <input type="number" name="PhysicianId"/>
+          <input type="number" name="PhysicianId" value={physician?.id || ""} />
+        </div>
+
+
+        <div>
+          <input
+            type="text"
+            name="searchPatient"
+            value={searchPatient}
+            onChange={(e) => setSearchPatient(e.target.value)}
+            placeholder="Nom du patient"
+          />
+            <button type="button" onClick={handleSearchPatient}>
+            Rechercher
+          </button>
         </div>
         <div>
-        <input
-          type="text"
-          value={searchPatient}
-          onChange={(e) => setSearchPatient(e.target.value)}
-          placeholder="Nom du patient"
-        />
-        </div>
-        <div>
-        {patient && (
-          <div key={patient?.id}>
-            <p>
-              {patient?.last_name} {patient?.first_name}
-            </p>
-          </div>
-        )}
+          {searchPatientResults.map((patient) => (
+            <div key={patient?.id}>
+              <p>
+                {patient?.last_name} {patient?.first_name}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setPatient(patient); // Set the selected patient
+                  // Set the selected patient's ID in the input field
+                  const patientIdInput = document.getElementsByName("PatientId")[0];
+                  patientIdInput.value = patient?.id || "";
+                }}
+              >
+                Sélectionner
+              </button>
+            </div>
+          ))}
         </div>
         <div>
           <label htmlFor="PatientId">Pour le patient:</label><br />
-          <input type="number" name="PatientId" value={patient?.id || ""} />
+          <input type="number" name="PatientId" value={patient?.id|| ""} />
         </div>
+
         <div>
           <label htmlFor="PharmacyId">Pour la pharmacie:</label><br />
           <input type="number" name="PharmacyId"/>
