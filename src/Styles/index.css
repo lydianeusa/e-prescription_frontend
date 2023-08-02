@@ -116,6 +116,7 @@ button {
 }
 
 .btn-2:hover {
+  background: purple;
   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5), -4px -4px 6px 0 rgba(116, 125, 136, 0.5), inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2), inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
 }
 
@@ -429,7 +430,7 @@ button {
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
   background-color: #4dccc6;
-  background-image: linear-gradient(315deg, #11ff88 0%, #1bfff4 74%);
+  background-image: linear-gradient(315deg, #11fbff 0%, #dcfffe 74%);
   line-height: 42px;
   padding: 0;
   border: none;

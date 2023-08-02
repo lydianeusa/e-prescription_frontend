@@ -1,3 +1,19 @@
 .login{
-    margin:10px
+    margin:10px;
+
+    label{
+        font-size: 1.2rem;
+    }
+    form{
+        background-color: rgb(214, 240, 255);
+        border: solid 2px black;
+        padding-top: 40px;
+        padding-right: 40px;
+        padding-left: 40px;
+        margin: auto;
+        width: 30rem;
+        margin-bottom: 30px;
+        box-shadow: 5px 6px 4px 0px #bbc3da;
+        border-radius: 1%;
+    }
 }

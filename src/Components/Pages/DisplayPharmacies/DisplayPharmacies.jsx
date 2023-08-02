@@ -24,7 +24,7 @@ const DisplayPharmacies = ()=>{
 
         {pharmaciesData.map((pharmacy) => {
           return (
-            <div key={pharmacy.id}>
+            <div key={pharmacy.id} className="displayPharmacies">
               <h2>{pharmacy.name}</h2>
               <p>Adresse : {pharmacy.address+", "+pharmacy.zipcode+" "+pharmacy.city}</p>
               <p>Téléphone : {pharmacy.phone_number}</p>

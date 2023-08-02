@@ -6,6 +6,7 @@ import "./Login.css"
 
 const Login= () => {
   const navigate= useNavigate()
+
   const handleSubmit=(event)=>{
   event.preventDefault();
 
@@ -22,12 +23,15 @@ const Login= () => {
       password: password,
     })
   })
-  .then(response => response.json()) // Je transforme la réponse en JSON
-  .then(data => { // Je récupère les données de la réponse
+  .then((response) => response.json()) // Je transforme la réponse en JSON
+  .then((data) => { // Je récupère les données de la réponse
       
       if (data.token) { // Si j'ai un token dans la réponse
           const jwt = data.token; // Je récupère le token
+          const roles = data.user.roles;
           localStorage.setItem("jwt", jwt); // Je stocke le token dans le localStorage
+          localStorage.setItem("roles", JSON.stringify (roles));
+          console.log(roles)
           navigate ("/")
 
           // window.location.href = "http://localhost:3000/"; // Redirection vers la page account

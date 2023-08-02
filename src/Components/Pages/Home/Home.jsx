@@ -79,7 +79,7 @@ const Home =()=>{
                         </a>
                     </div>
                     <div className="col-12 col-md-6 col-lg-4">
-                        <a href="/delivery"><img className="img-fluid" src="img/delivery.png" alt=""/>
+                        <a href="/delivery"><img className="img-fluid" src="img/truck1.png" alt=""/>
                             <h3>LIVRAISON</h3>
                         </a>
                     </div>
@@ -89,7 +89,7 @@ const Home =()=>{
                         </a>
                     </div>
                     <div className="col-12 col-md-6 col-lg-4">
-                        <a href="/fees"><img className="img-fluid" src="img/euro.png" alt=""/>
+                        <a href="/fees"><img className="img-fluid" src="img/euro_symbol.png" alt=""/>
                             <h3>TARIFS</h3>
                         </a>
                     </div>

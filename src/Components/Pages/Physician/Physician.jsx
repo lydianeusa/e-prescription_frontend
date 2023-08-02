@@ -14,13 +14,10 @@ const Physician =()=>{
               <button className="btn-1"><Link to="/find-patient">Trouver un patient</Link></button>
             </div>
             <div className="col-12 col-md-12 col-lg-4">
-              <button className="btn-1"><Link to="/create-patient">Créer un patient</Link></button>
+              <img src="img/physicianter.png" alt="" />
             </div>
             <div className="col-12 col-md-12 col-lg-4">
               <button className="btn-1"><Link to="/find-pharmacy">Trouver une pharmacie</Link></button>
-            </div>
-            <div className="col-12 col-md-12 col-lg-12">
-              <img src="img/physicianter.png" alt="" />
             </div>
           </div>
         </div>

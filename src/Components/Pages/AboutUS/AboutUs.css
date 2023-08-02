@@ -1,4 +1,9 @@
 .aboutUs {
   margin-left: 150px;
   margin-right: 150px;
+  margin-bottom: 70px;
+}
+.aboutUs h2 {
+  color: purple;
+  padding-bottom: 0px;
 }/*# sourceMappingURL=AboutUs.css.map */

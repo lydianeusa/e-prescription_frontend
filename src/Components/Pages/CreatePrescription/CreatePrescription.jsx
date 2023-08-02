@@ -1,7 +1,7 @@
 import Footer from "../../Layout/Footer/Footer";
 import Header from "../../Layout/Header/Header";
-import { useNavigate } from "react-router-dom";
-import React, { useEffect} from "react";
+import { useNavigate} from "react-router-dom";
+import React, { useEffect, useState} from "react";
 
 
 const CreatePrescription = ()=>{
@@ -28,6 +28,9 @@ const CreatePrescription = ()=>{
       // Nettoie le timeout lorsque le composant est démonté
       return () => clearTimeout(timeoutId);
   }, [navigate]);
+
+  const [searchPatient, setSearchPatient] = useState("");
+  const [patient, setPatient] = useState(null);
 
   const handleSubmit=(event)=>{
     event.preventDefault();
@@ -96,8 +99,25 @@ const CreatePrescription = ()=>{
           <input type="number" name="PhysicianId"/>
         </div>
         <div>
+        <input
+          type="text"
+          value={searchPatient}
+          onChange={(e) => setSearchPatient(e.target.value)}
+          placeholder="Nom du patient"
+        />
+        </div>
+        <div>
+        {patient && (
+          <div key={patient?.id}>
+            <p>
+              {patient?.last_name} {patient?.first_name}
+            </p>
+          </div>
+        )}
+        </div>
+        <div>
           <label htmlFor="PatientId">Pour le patient:</label><br />
-          <input type="number" name="PatientId"/>
+          <input type="number" name="PatientId" value={patient?.id || ""} />
         </div>
         <div>
           <label htmlFor="PharmacyId">Pour la pharmacie:</label><br />

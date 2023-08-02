@@ -5,10 +5,15 @@ import Footer from "../../Layout/Footer/Footer";
 
 
 const UpdatePatient = () => {
-  const navigate = useNavigate();
-  // Autorisation JWT
+
+        const navigate = useNavigate();
+        const token = localStorage.getItem("jwt");
+        const roles = localStorage.getItem("roles");
+
+        console.log("Token:", token);
+        console.log("Role:", roles)
+
   useEffect(() => {
-      const token = localStorage.getItem("jwt");
       if (!token) {
           navigate("/login");
           return;
@@ -28,17 +33,23 @@ const UpdatePatient = () => {
   }, [navigate]);
 
   const [patient, setPatient]=useState(null)
+  const [patientModified, setPatientModified] = useState(false); // State to track if the patient has been modified
 
     const { id } = useParams();
   
     useEffect(() => {
-      fetch(`http://localhost:3001/api/patients/${id}`)
+      fetch(`http://localhost:3001/api/patients/${id}`, {
+        headers: { "Content-Type": "application/json" ,
+        Authorization: `Bearer ${token}`
+        },  
+    })
         .then((responseJson) => responseJson.json())
         .then((responseJs) => {
           setPatient(responseJs.data);
         });
-    }, [id]);
+    }, [id, token]);
 
+    console.log("ID:", id); // Check the value of "id" here
   
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -48,27 +59,27 @@ const UpdatePatient = () => {
       const birth_date = event.target.birth_date.value;
       const email = event.target.email.value;
 
-      const token = localStorage.getItem("jwt");
+      // const token = localStorage.getItem("jwt");
 
   
       fetch(`http://localhost:3001/api/patients/${id}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+        headers: { "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
             first_name: first_name,
             last_name: last_name,
             birth_date: birth_date,
             email: email,
-          })
-  
-      }).then((response) => {
+          }),
+        }).then((response) => {
         if (response.status === 200) {
           console.log("information du patient modifiée");
+          setPatientModified(true);
         } else {
           console.log("erreur");
+          setPatientModified(false);
         }
       });
     };
@@ -79,6 +90,7 @@ const UpdatePatient = () => {
         <>
           <Header/>
           <main>
+
             {patient ? (
               <>
                 <h1>Mise à jour du patient : {patient.last_name+" "+patient.first_name}</h1>
@@ -106,6 +118,7 @@ const UpdatePatient = () => {
             ) : (
               <p>Le patient a été supprimé de la base de données.</p>
             )}
+            {patientModified && <p>Le patient a été modifié.</p>}
           </main>
           <Footer/>
       </>

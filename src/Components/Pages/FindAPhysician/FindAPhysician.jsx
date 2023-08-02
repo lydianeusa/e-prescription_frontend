@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../Layout/Header/Header";
 import Footer from "../../Layout/Footer/Footer";
+import "./FindAPhysician.css"
 
 const FindAPhysician = () => {
     const [physicians, setPhysicians] = useState([]);

@@ -1,17 +1,18 @@
 
-.physician a:link{
-    font-size: 1.5rem;
-}
-
-.physician a{
+.physician{
+    a:link{
+        font-size: 1.5rem;
+    }
+    a{
     color: lightBlue;
-}
-
-.physician ul{
+    }
+    ul{
     margin-top: 20px;
-}
-
-.physician img{
+    }
+    img{
     width: 25rem;
-    margin-top: 4rem;
+    }
+    div{
+        margin-top: 4rem;
+    }
 }

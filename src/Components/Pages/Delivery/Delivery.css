@@ -12,4 +12,8 @@
 }
 .delivery a:hover {
   color: purple;
+}
+.delivery img {
+  width: 20rem;
+  margin-top: 10rem;
 }/*# sourceMappingURL=Delivery.css.map */

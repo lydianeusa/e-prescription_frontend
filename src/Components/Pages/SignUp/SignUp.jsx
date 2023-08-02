@@ -16,8 +16,6 @@ const SignUp = () => {
     const roles = selectedRole;
     const username = formData.get("username");
     const password = formData.get("password");
-    const email = formData.get("email");
-
   
     let additionalFields = {};
   
@@ -25,7 +23,8 @@ const SignUp = () => {
       case "physician":
         additionalFields = {
           last_name: formData.get("last_name"),
-          first_name: formData.get("first_name"),
+          first_name: formData.get("first_name"),    
+          email: formData.get("email"),
           verification_number: formData.get("verification_number"),
           specialty: formData.get("specialty"),
           address: formData.get("address"),
@@ -36,18 +35,20 @@ const SignUp = () => {
         break;
       case "pharmacist":
         additionalFields = {
-          verification_number: formData.get("verification_number"),
           name: formData.get("name"),
+          email: formData.get("email"),
           address: formData.get("address"),
           zipcode: formData.get("zipcode"),
           city: formData.get("city"),
-          phone_number: formData.get("phone_number")
+          phone_number: formData.get("phone_number"),
+          verification_number: formData.get("verification_number"),
         };
         break;
       case "patient":
         additionalFields = {
           last_name: formData.get("last_name"),
           first_name: formData.get("first_name"),
+          email: formData.get("email"),
           birth_date: formData.get("birth_date"),
           address: formData.get("address"),
           zipcode: formData.get("zipcode"),
@@ -66,7 +67,6 @@ const SignUp = () => {
         roles: [roles],
         username: username,
         password: password,
-        email: email,
         ...additionalFields,
       }),
     })
@@ -91,6 +91,9 @@ const SignUp = () => {
             <br />
             <label htmlFor="first_name">Prénom</label>
             <input type="text" name="first_name" placeholder="Prénom" />
+            <br />
+            <label htmlFor="email">Adresse mail</label>
+            <input type="email" name="email" placeholder="Adresse mail" />
             <br />
             <label htmlFor="specialty">Spécialité</label>
             <input type="text" name="specialty" placeholder="Spécialité" />
@@ -117,6 +120,9 @@ const SignUp = () => {
             <label htmlFor="name">Nom de la pharmacie</label>
             <input type="text" name="name" placeholder="Nom de la pharmacie"/>
             <br />
+            <label htmlFor="email">Adresse mail</label>
+            <input type="email" name="email" placeholder="Adresse mail"/>
+            <br />
             <label htmlFor="address">Numéro et rue</label>
             <input type="text" name="address" placeholder="Numéro et rue" />
             <br />
@@ -142,6 +148,9 @@ const SignUp = () => {
             <label htmlFor="first_name">Prénom</label>
             <input type="text" name="first_name" placeholder="Prénom" />
             <br />
+            <label htmlFor="email">Adresse mail</label>
+            <input type="email" name="email" placeholder="Adresse mail"/>
+            <br />
             <label htmlFor="address">Numéro et rue</label>
             <input type="text" name="address" placeholder="Numéro et rue" />
             <br />
@@ -166,38 +175,34 @@ const SignUp = () => {
       <Header />
       <main className="signUp">
         <h1>Inscription:</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="roles" className="role">Sélectionner votre profil</label>
-            <select
-              name="roles"
-              value={selectedRole}
-              onChange={(event) => setSelectedRole(event.target.value)}
-            >
-              <option value="physician">Médecin</option>
-              <option value="patient">Patient</option>
-              <option value="pharmacist">Pharmacien</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="username">Utilisateur</label>
-            <input type="text" name="username" placeholder="Nom d'utilisateur"/>
-          </div>
-          <div>
-            <label htmlFor="password">Mot de passe</label>
-            <input type="password" name="password" placeholder="Mot de passe"/>
-          </div>
-          <div>
-            <label htmlFor="email">Adresse mail</label>
-            <input type="email" name="email" placeholder="Adresse mail"/>
-          </div>
+                <form onSubmit={handleSubmit}>
+                  <div>
+                    <label htmlFor="roles" className="role">Sélectionner votre profil</label>
+                    <select
+                      name="roles"
+                      value={selectedRole}
+                      onChange={(event) => setSelectedRole(event.target.value)}
+                    >
+                      <option value="physician">Médecin</option>
+                      <option value="patient">Patient</option>
+                      <option value="pharmacist">Pharmacien</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="username">Utilisateur</label>
+                    <input type="text" name="username" placeholder="Nom d'utilisateur"/>
+                  </div>
+                  <div>
+                    <label htmlFor="password">Mot de passe</label>
+                    <input type="password" name="password" placeholder="Mot de passe"/>
+                  </div>
 
-          {renderRoleSpecificFields(selectedRole)}
+                  {renderRoleSpecificFields(selectedRole)}
 
-          <button className="btn-2" type="submit">
-            Envoyer
-          </button>
-        </form>
+                  <button className="btn-2" type="submit">
+                    Envoyer
+                  </button>
+                </form>
       </main>
       <Footer />
     </div>

@@ -34,7 +34,7 @@ const Header = () => {
                   <Nav.Link href="/sign-up" className="menu">S'inscrire</Nav.Link>
                 </>
               ):(
-                <Nav.Link href="#" onClick={handleLogOut}>Déconnexion</Nav.Link>
+                <Nav.Link href="#" onClick={handleLogOut} className="menu">Déconnexion</Nav.Link>
               )
               }
             </Nav>

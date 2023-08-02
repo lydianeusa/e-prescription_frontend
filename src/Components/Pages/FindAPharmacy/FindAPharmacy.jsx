@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../Layout/Header/Header";
 import Footer from "../../Layout/Footer/Footer";
+import "./FindAPharmacy.css"
 
 const FindAPharmacy = () => {
   const [pharmacies, setPharmacies] = useState([]);
@@ -45,7 +46,7 @@ const FindAPharmacy = () => {
             type="text"
             value={searchPharmacy}
             onChange={(e) => setSearchPharmacy(e.target.value)}
-            placeholder="Chercher Pharmacie"
+            placeholder="Nom de la pharmacie"
           />
           <br />
           <button className="btn-2" type="submit">
@@ -55,11 +56,12 @@ const FindAPharmacy = () => {
         {showPharmacyInfo ? (
           pharmacies.length > 0 ? (
             pharmacies.map((pharmacy) => (
-              <div key={pharmacy?.id}>
+              <div key={pharmacy?.id} className="findAPharmacy">
                 <h2>Pharmacie {pharmacy?.name}</h2>
                 <p>{pharmacy?.address}</p>
-                <p>{pharmacy?.zipcode}</p>
-                <p>{pharmacy?.city}</p>
+                <p>{pharmacy?.zipcode} {pharmacy?.city}</p>
+                <p>{pharmacy?.phone_number}</p>
+                <p>{pharmacy?.email}</p>
               </div>
             ))
           ) : (

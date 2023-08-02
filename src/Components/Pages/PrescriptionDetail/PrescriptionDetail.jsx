@@ -32,7 +32,9 @@ const PrescriptionDetail = () => {
         const { id } = useParams();
 
         useEffect(() => {
-            fetch(`http://localhost:3001/api/prescriptions/${id}`)
+            fetch(`http://localhost:3001/api/prescriptions/${id}`,{
+            headers: {Authorization: `Bearer ${token}`}
+            })
             .then((responseJson) => responseJson.json())
             .then((responseJs) => {setPrescription(responseJs.data);
             });

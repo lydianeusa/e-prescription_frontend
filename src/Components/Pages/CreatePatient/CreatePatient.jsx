@@ -85,7 +85,7 @@ const CreatePatient = ()=>{
           <label htmlFor="email">Email</label><br />
           <input type="email" name="email"/>
         </div>
-        <button className="btn-2" type="submit">submit</button>
+        <button className="btn-2" type="submit">Envoyer</button>
       </form>
     </main>
     <Footer/>

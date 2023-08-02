@@ -6,9 +6,9 @@ import Footer from "../../Layout/Footer/Footer";
 
 const UpdatePrescription = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem("jwt");
   // Autorisation JWT
   useEffect(() => {
-      const token = localStorage.getItem("jwt");
       if (!token) {
           navigate("/login");
           return;
@@ -33,28 +33,17 @@ const UpdatePrescription = () => {
   const { id } = useParams();
 
     useEffect(() => {
-      fetch(`http://localhost:3001/api/prescriptions/${id}`)
+      fetch(`http://localhost:3001/api/prescriptions/${id}`, {
+      headers: { "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+      },
+    })
         .then((responseJson) => responseJson.json())
         .then((responseJs) => {
           setPrescription(responseJs.data);
         });
     }, [id]);
 
-
-
-    // const handleDeleteClick = () => {
-    // fetch(`http://localhost:3001/api/prescriptions/${id}`, {
-    //     method: "DELETE" ,
-    //   })
-      
-    //     .then(() => {
-    //       navigate(0);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
-  
     const handleSubmit = (event) => {
       event.preventDefault();
   
@@ -69,7 +58,7 @@ const UpdatePrescription = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
             medicine_name: medicine_name,
