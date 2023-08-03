@@ -31,6 +31,7 @@ h1{
 h2 {
   font-size: 1.5rem;
   padding: 20px;
+  font-weight: bold;
 }
 
 h3 {
@@ -239,14 +240,14 @@ button{
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
   background-color: #4dccc6;
-  background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+  background-image: linear-gradient(315deg, #059ff9 0%, #059ff9 74%);
     line-height: 42px;
     padding: 0;
     border: none;
   }
   .btn-4:hover{
-    background-color: #89d8d3;
-  background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+    background-color: #89c8d8;
+    background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
   }
   .btn-4 span {
     position: relative;

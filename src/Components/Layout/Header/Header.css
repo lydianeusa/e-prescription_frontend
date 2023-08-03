@@ -39,4 +39,8 @@ header img {
 .collapse.show {
   background-color: darkblue;
   width: 100vw;
+}
+
+.username {
+  color: aliceblue;
 }/*# sourceMappingURL=Header.css.map */

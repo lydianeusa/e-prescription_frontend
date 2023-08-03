@@ -49,11 +49,10 @@
   height: 100px;
 }
 #services img:hover {
-  background-color: rgb(207, 205, 205);
+  background-color: purple;
 }
 #services h2 {
   padding: 40px;
-  font-weight: bold;
 }
 #services h3 {
   padding-bottom: 40px;

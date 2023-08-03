@@ -2,6 +2,7 @@ import Footer from "../../Layout/Footer/Footer";
 import Header from "../../Layout/Header/Header";
 import { useNavigate} from "react-router-dom";
 import React, { useEffect, useState} from "react";
+import "./CreatePrescription.css"
 
 
 const CreatePrescription = ()=>{
@@ -32,9 +33,14 @@ const CreatePrescription = ()=>{
   const [searchPatient, setSearchPatient] = useState("");
   const [patient, setPatient] = useState(null);
   const [searchPatientResults, setSearchPatientResults] = useState([]);
+
   const [searchPhysician, setSearchPhysician] = useState("");
   const [physician, setPhysician] = useState(null);
   const [searchPhysicianResults, setSearchPhysicianResults] = useState([]);
+
+  const [searchPharmacy, setSearchPharmacy] = useState("");
+  const [pharmacy, setPharmacy] = useState(null);
+  const [searchPharmacyResults, setSearchPharmacyResults] = useState([]);
 
 
   const handleSubmit=(event)=>{
@@ -121,111 +127,202 @@ const CreatePrescription = ()=>{
         setSearchPhysicianResults([]); // If there is an error, set the search results to an empty array
       });
   };
+
+  const handleSearchPharmacy = (event) => {
+    event.preventDefault();
+    const searchQuery = searchPharmacy;
+    const token = localStorage.getItem("jwt");
+  
+    fetch(`http://localhost:3001/api/pharmacies?search=${searchQuery}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSearchPharmacyResults(data.data); // Update the search results state with the fetched data
+      })
+      .catch((error) => {
+        console.error("Error fetching physicians:", error);
+        setSearchPharmacyResults([]); // If there is an error, set the search results to an empty array
+      });
+  };
   
   
   return (
     <div>
     <Header/>
-    <main>
+    <main className="createPrescription">
       <h1>Créer une ordonnance</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="medicine_name">Médicament</label><br />
-          <input type="text" name="medicine_name"/>
-        </div>
-        <div>
-          <label htmlFor="dosage">Dosage</label><br />
-          <input type="text" name="dosage"/>
-        </div>
-        <div>
-          <label htmlFor="frequency">Fréquence</label><br />
-          <input type="text" name="frequency"/>
-        </div>
-        <div>
-          <label htmlFor="duration">Durée</label><br />
-          <input type="text" name="duration"/>
-        </div>
-        <div>
-          <input
-            type="text"
-            name="searchPhysician"
-            value={searchPhysician}
-            onChange={(e) => setSearchPhysician(e.target.value)}
-            placeholder="Nom du médecin"
-          />
-          <button type="button" onClick={handleSearchPhysician}>
-            Rechercher
-          </button>
-        </div>
-        <div>
-          {searchPhysicianResults.map((physician) => (
-            <div key={physician?.id}>
-              <p>
-                {physician?.last_name} {physician?.first_name}
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setPhysician(physician); // Set the selected physician
-                  // Set the selected physician's ID in the input field
-                  const physicianIdInput = document.getElementsByName("PhysicianId")[0];
-                  physicianIdInput.value = physician?.id || "";
-                }}
-              >
-                Sélectionner
-              </button>
-            </div>
-          ))}
+        <div className="prescription">
+          <div>
+            <label htmlFor="medicine_name">Médicament</label><br />
+            <input type="text" name="medicine_name"/>
+          </div>
+          <div>
+            <label htmlFor="dosage">Dosage</label><br />
+            <input type="text" name="dosage"/>
+          </div>
+          <div>
+            <label htmlFor="frequency">Fréquence</label><br />
+            <input type="text" name="frequency"/>
+          </div>
+          <div>
+            <label htmlFor="duration">Durée</label><br />
+            <input type="text" name="duration"/>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="PhysicianId">Pour le médecin:</label><br />
-          <input type="number" name="PhysicianId" value={physician?.id || ""} />
+        <div className="physicianSearch">
+          <div>
+            <label htmlFor="physicianName">Tapez le nom du médecin:</label><br />
+            <input
+              type="text"
+              name="searchPhysician"
+              defaultValue={searchPhysician}
+              onChange={(e) => setSearchPhysician(e.target.value)}
+              placeholder="Nom du médecin"
+            />
+            <br />
+            <button type="button" className="btn-2" onClick={handleSearchPhysician}>
+              Rechercher
+            </button>
+          </div>
+          <div>
+            {searchPhysicianResults.map((physician) => (
+              <div key={physician?.id}>
+                <p>
+                  {physician?.last_name} {physician?.first_name}
+                </p>
+                <button
+                  type="button" className="btn-4"
+                  onClick={() => {
+                    setPhysician(physician); // Set the selected physician
+                    // Set the selected physician's ID in the input field
+                    const physicianIdInput = document.getElementsByName("PhysicianId")[0];
+                    physicianIdInput.value = physician?.id || "";
+                              // Set the selected physician's full name in the input field
+                    const physicianNameInput = document.getElementsByName("physicianName")[0];
+                    physicianNameInput.value = physician?.last_name && physician?.first_name
+                    ? `${physician?.last_name} ${physician?.first_name}`
+                    : "";
+                  }}
+                >
+                  Sélectionner
+                </button>
+              </div>
+            ))}
+          </div>
+          <div>
+            <input type="hidden" name="PhysicianId" value={physician?.id || ""} />
+          </div>
+          <div>
+            <label htmlFor="physicianName">Pour le médecin:</label><br />
+            <input type="text" name="physicianName"     defaultValue={physician?.last_name && physician?.first_name
+            ? `${physician?.last_name} ${physician?.first_name}`
+            : ""} />
+          </div>
         </div>
 
+        <div className="patientSearch">
+          <div>
+          <label htmlFor="patientName">Tapez le nom du patient:</label><br />
+            <input
+              type="text"
+              name="searchPatient"
+              defaultValue={searchPatient}
+              onChange={(e) => setSearchPatient(e.target.value)}
+              placeholder="Nom du patient"
+            />
+            <br />
+              <button type="button" className="btn-2" onClick={handleSearchPatient}>
+              Rechercher
+            </button>
+          </div>
+          <div>
+            {searchPatientResults.map((patient) => (
+              <div key={patient?.id}>
+                <p>
+                  {patient?.last_name} {patient?.first_name}
+                </p>
+                <button
+                  type="button" className="btn-4"
+                  onClick={() => {
+                    setPatient(patient); // Set the selected patient
+                    // Set the selected patient's ID in the input field
+                    const patientIdInput = document.getElementsByName("PatientId")[0];
+                    patientIdInput.value = patient?.id || "";
+                              // Set the selected patient's full name in the input field
+                    const patientNameInput = document.getElementsByName("patientName")[0];
+                    patientNameInput.value = patient?.last_name && patient?.first_name
+                    ? `${patient?.last_name} ${patient?.first_name}`
+                    : "";
+                  }}
+                >
+                  Sélectionner
+                </button>
+              </div>
+            ))}
+          </div>
+          <div>
+            <input type="hidden" name="PatientId" value={patient?.id|| ""} />
+          </div>
+          <div>
+            <label htmlFor="patientName">Pour le patient:</label><br />
+            <input type="text" name="patientName"     defaultValue={patient?.last_name && patient?.first_name
+            ? `${patient?.last_name} ${patient?.first_name}`
+            : ""} />
+          </div>
+        </div>
+          
+        <div className="pharmacySearch">  
+          <div>
+          <label htmlFor="pharmacyName">Tapez le nom de la pharmacie:</label><br />
+            <input
+              type="text"
+              name="searchPharmacy"
+              defaultValue={searchPharmacy}
+              onChange={(e) => setSearchPharmacy(e.target.value)}
+              placeholder="Nom de la pharmacie"
+            />
+            <br />
+              <button type="button" className="btn-2" onClick={handleSearchPharmacy}>
+              Rechercher
+            </button>
+          </div>
+          <div>
+            {searchPharmacyResults.map((pharmacy) => (
+              <div key={pharmacy?.id}>
+                <p>
+                  {pharmacy?.name} {pharmacy?.city}
+                </p>
+                <button
+                  type="button" className="btn-4"
+                  onClick={() => {
+                    setPharmacy(pharmacy); // Set the selected pharmacy
+                    // Set the selected pharmacy's ID in the input field
+                    const pharmacyIdInput = document.getElementsByName("PharmacyId")[0];
+                    pharmacyIdInput.value = pharmacy?.id || "";
+                  }}
+                >
+                  Sélectionner
+                </button>
+              </div>
+            ))}
+          </div>
+          <div>
+            <input type="hidden" name="PharmacyId" value={pharmacy?.id|| ""} />
+          </div>
+          <div>
+            <label htmlFor="pharmacyName">Pour la pharmacie:</label><br />
+            <input type="text" name="pharmacyName" defaultValue={pharmacy?.name|| ""} />
+          </div>
+        </div>
 
-        <div>
-          <input
-            type="text"
-            name="searchPatient"
-            value={searchPatient}
-            onChange={(e) => setSearchPatient(e.target.value)}
-            placeholder="Nom du patient"
-          />
-            <button type="button" onClick={handleSearchPatient}>
-            Rechercher
-          </button>
-        </div>
-        <div>
-          {searchPatientResults.map((patient) => (
-            <div key={patient?.id}>
-              <p>
-                {patient?.last_name} {patient?.first_name}
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setPatient(patient); // Set the selected patient
-                  // Set the selected patient's ID in the input field
-                  const patientIdInput = document.getElementsByName("PatientId")[0];
-                  patientIdInput.value = patient?.id || "";
-                }}
-              >
-                Sélectionner
-              </button>
-            </div>
-          ))}
-        </div>
-        <div>
-          <label htmlFor="PatientId">Pour le patient:</label><br />
-          <input type="number" name="PatientId" value={patient?.id|| ""} />
-        </div>
-
-        <div>
-          <label htmlFor="PharmacyId">Pour la pharmacie:</label><br />
-          <input type="number" name="PharmacyId"/>
-        </div>
-        <button className="btn-2" type="number">Envoyer</button>
+        <button className="btn-3" type="number">Envoyer</button>
       </form>
     </main>
     <Footer/>
