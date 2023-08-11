@@ -50,13 +50,13 @@ const FindAPhysician = () => {
             />
             <br />
             <button className="btn-2" type="submit">
-              Search
+              Chercher
             </button>
           </form>
           {showPhysicianInfo ? (
             physicians.length > 0 ? (
                 physicians.map((physician) => (
-                <div key={physician?.id}>
+                <div key={physician?.id} className="findAPhysician">
                   <h2>Médecin {physician?.first_name} {physician?.last_name}</h2>
                   <p>{physician?.specialty}</p>
                   <p>{physician?.address}</p>

@@ -1,8 +1,16 @@
-.displayPatients h2{
-    padding-bottom: 0;
-    font-size: 1.3rem;
-}
+.displayPatients{
+    background-color: rgb(214, 240, 255);
+    border: solid 2px black;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin: auto;
+    width: 30rem;
+    margin-bottom: 50px;
+    box-shadow: 5px 6px 4px 0px #bbc3da;
+    border-radius: 1%;
 
-.displayPatients a{
-    color: lightBlue;
+    .btn-2{
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
 }

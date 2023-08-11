@@ -63,7 +63,10 @@ const DisplayPrescriptions = ()=>{
                     <p>Dosage : {e.dosage}</p>
                     <p>Fréquence: {e.frequency}</p>
                     <p>Durée: {e.duration}</p>
-                    <button className="btn-4"><Link to={`/prescription/${e.id}`}>Voir l'ordonnance</Link></button>             
+                    {/* <button className="btn-4"> */}
+  {/* <Link to={{ pathname: `/prescription/${e.id}`, state: { prescription: e } }}>Voir l'ordonnance</Link>
+</button> */}
+                    <button className="btn-4"><Link to={`/prescription-admin/${e.id}`}>Voir l'ordonnance</Link></button>             
                   </div>
                 </div>
               );

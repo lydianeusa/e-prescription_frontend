@@ -36,6 +36,12 @@ const CreatePatient = ()=>{
     const last_name = event.target.last_name.value;
     const birth_date = event.target.birth_date.value;
     const email = event.target.email.value;
+    const address= event.target.address.value;
+    const zipcode= event.target.zipcode.value;
+    const city= event.target.city.value;
+    const phone_number= event.target.phone_number.value;
+    const username= event.target.username.value;
+    const password= event.target.password.value;
 
     // Récupère le jeton JWT stocké dans le local storage   
     const token = localStorage.getItem("jwt");
@@ -51,6 +57,12 @@ const CreatePatient = ()=>{
         last_name: last_name,
         birth_date: birth_date,
         email: email,
+        address: address,
+        zipcode: zipcode,
+        city: city,
+        phone_number: phone_number,
+        username: username,
+        password: password,
       })
     })
     .then((response) => {
@@ -66,9 +78,17 @@ const CreatePatient = ()=>{
   return (
     <div>
     <Header/>
-    <main className="createPatient">
+    <main>
       <h1>Créer un dossier patient</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="createPatient">
+        <div>
+          <label htmlFor="username">Nom utilisateur</label><br />
+          <input type="text" name="username"/>
+        </div>
+        <div>
+          <label htmlFor="password">Mot de passe</label><br />
+          <input type="password" name="password"/>
+        </div>
         <div>
           <label htmlFor="first_name">Prénom</label><br />
           <input type="text" name="first_name"/>
@@ -84,6 +104,22 @@ const CreatePatient = ()=>{
         <div>
           <label htmlFor="email">Email</label><br />
           <input type="email" name="email"/>
+        </div>
+        <div>
+          <label htmlFor="address">Numéro et rue</label><br />
+          <input type="text" name="address"/>
+        </div>
+        <div>
+          <label htmlFor="zipcode">Code postal</label><br />
+          <input type="number" name="zipcode"/>
+        </div>
+        <div>
+          <label htmlFor="city">Ville</label><br />
+          <input type="text" name="city"/>
+        </div>
+        <div>
+          <label htmlFor="phone_number">Téléphone</label><br />
+          <input type="number" name="phone_number"/>
         </div>
         <button className="btn-2" type="submit">Envoyer</button>
       </form>

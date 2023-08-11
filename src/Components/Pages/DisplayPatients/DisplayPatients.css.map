@@ -1,1 +1,1 @@
-{"version":3,"sources":["DisplayPatients.scss","DisplayPatients.css"],"names":[],"mappings":"AAAA;EACI,iBAAA;EACA,iBAAA;ACCJ;;ADEA;EACI,gBAAA;ACCJ","file":"DisplayPatients.css"}
+{"version":3,"sources":["DisplayPatients.scss","DisplayPatients.css"],"names":[],"mappings":"AAAA;EACI,oCAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,YAAA;EACA,YAAA;EACA,mBAAA;EACA,mCAAA;EACA,iBAAA;ACCJ;ADCI;EACI,aAAA;EACA,mBAAA;ACCR","file":"DisplayPatients.css"}

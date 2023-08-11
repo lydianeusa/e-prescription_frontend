@@ -50,7 +50,7 @@ const FindAPharmacy = () => {
           />
           <br />
           <button className="btn-2" type="submit">
-            Search
+            Chercher
           </button>
         </form>
         {showPharmacyInfo ? (

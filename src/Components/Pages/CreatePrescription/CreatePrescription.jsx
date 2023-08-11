@@ -42,6 +42,7 @@ const CreatePrescription = ()=>{
   const [pharmacy, setPharmacy] = useState(null);
   const [searchPharmacyResults, setSearchPharmacyResults] = useState([]);
 
+  const [prescriptionCreated, setPrescriptionCreated] = useState(false);
 
   const handleSubmit=(event)=>{
     event.preventDefault();
@@ -76,6 +77,7 @@ const CreatePrescription = ()=>{
     .then((response) => {
       if (response.status === 200) {
         console.log("ordonnance créée");
+        setPrescriptionCreated(true);
       } else {
         console.log("erreur");
       }
@@ -178,9 +180,10 @@ const CreatePrescription = ()=>{
 
         <div className="physicianSearch">
           <div>
-            <label htmlFor="physicianName">Tapez le nom du médecin:</label><br />
+            <label htmlFor="physicianName">Tapez le nom du médecin:*</label><br />
             <input
               type="text"
+              required="required" 
               name="searchPhysician"
               defaultValue={searchPhysician}
               onChange={(e) => setSearchPhysician(e.target.value)}
@@ -220,18 +223,20 @@ const CreatePrescription = ()=>{
             <input type="hidden" name="PhysicianId" value={physician?.id || ""} />
           </div>
           <div>
-            <label htmlFor="physicianName">Pour le médecin:</label><br />
-            <input type="text" name="physicianName"     defaultValue={physician?.last_name && physician?.first_name
-            ? `${physician?.last_name} ${physician?.first_name}`
-            : ""} />
+            <label htmlFor="physicianName">Pour le médecin:*</label><br />
+            <input type="text" name="physicianName" required="required" 
+              defaultValue={physician?.last_name && physician?.first_name
+              ? `${physician?.last_name} ${physician?.first_name}`
+              : ""} />
           </div>
         </div>
 
         <div className="patientSearch">
           <div>
-          <label htmlFor="patientName">Tapez le nom du patient:</label><br />
+          <label htmlFor="patientName">Tapez le nom du patient:*</label><br />
             <input
               type="text"
+              required="required" 
               name="searchPatient"
               defaultValue={searchPatient}
               onChange={(e) => setSearchPatient(e.target.value)}
@@ -271,18 +276,21 @@ const CreatePrescription = ()=>{
             <input type="hidden" name="PatientId" value={patient?.id|| ""} />
           </div>
           <div>
-            <label htmlFor="patientName">Pour le patient:</label><br />
-            <input type="text" name="patientName"     defaultValue={patient?.last_name && patient?.first_name
-            ? `${patient?.last_name} ${patient?.first_name}`
-            : ""} />
+            <label htmlFor="patientName">Pour le patient:*</label><br />
+            <input type="text" name="patientName" required="required" 
+              defaultValue={patient?.last_name && patient?.first_name
+              ? `${patient?.last_name} ${patient?.first_name}`
+              : ""} 
+            />
           </div>
         </div>
           
         <div className="pharmacySearch">  
           <div>
-          <label htmlFor="pharmacyName">Tapez le nom de la pharmacie:</label><br />
+          <label htmlFor="pharmacyName">Tapez le nom de la pharmacie:*</label><br />
             <input
               type="text"
+              required="required" 
               name="searchPharmacy"
               defaultValue={searchPharmacy}
               onChange={(e) => setSearchPharmacy(e.target.value)}
@@ -317,13 +325,14 @@ const CreatePrescription = ()=>{
             <input type="hidden" name="PharmacyId" value={pharmacy?.id|| ""} />
           </div>
           <div>
-            <label htmlFor="pharmacyName">Pour la pharmacie:</label><br />
-            <input type="text" name="pharmacyName" defaultValue={pharmacy?.name|| ""} />
+            <label htmlFor="pharmacyName">Pour la pharmacie:*</label><br />
+            <input type="text" required="required" name="pharmacyName" defaultValue={pharmacy?.name|| ""} />
           </div>
         </div>
 
         <button className="btn-3" type="number">Envoyer</button>
       </form>
+      {prescriptionCreated && <p>L'ordonnance a été créée</p>}
     </main>
     <Footer/>
     </div>

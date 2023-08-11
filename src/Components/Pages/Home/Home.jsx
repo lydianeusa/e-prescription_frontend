@@ -1,30 +1,47 @@
 import Header from "../../Layout/Header/Header";
 import Footer from "../../Layout/Footer/Footer";
+import particlesConfig from "./Particles";
+import { useEffect } from "react";
 import "./Home.css";
 
 const Home =()=>{
+    useEffect(() => {
+        if (window.particlesJS) {
+            setTimeout(() => {
+              window.particlesJS('particles-js', particlesConfig);
+            }, 0);
+          }
+        }, []);
+      
+
   return (
     <div>
       <Header/>
       <main>
         <section id="banner">
+          <div id="particles-js"></div> {/* This div will hold the particles animation */}
             <div className="container">
-                <div className="row">
-                    <div className="col-12 col-md-12 col-lg-6">
-                        <h1>L'ORDONNANCE DIGITALE</h1>
-                    </div>
-                    <div className="col-12 col-md-12 col-lg-3">
-                    </div>
-                    <div className="col-12 col-md-12 col-lg-3">
-                        <div className="mobile">
-                        <img src="img/mobile-white.png" alt="mobile" />
-                        <a href="/mobile">
-                            <button>Application mobile</button>
-                        </a>
+                <div className="count-particles">
+                    <span className="js-count-particles"></span>
+                    <div className="row">
+                        <div className="col-12 col-md-12 col-lg-6">
+                            <h1>L'ORDONNANCE DIGITALE</h1>
+                        </div>
+                        <div className="col-12 col-md-12 col-lg-3">
+                        </div>
+                        <div className="col-12 col-md-12 col-lg-3">
+                            <div className="mobile">
+                                <a href="/mobile">
+                                    <img src="img/mobile-white.png" alt="mobile" />
+                                </a>
+                                <a href="/mobile">
+                                    <button>Application mobile</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-          </div>
+            </div>
         </section>
 
         <section id="presentation">
@@ -61,34 +78,34 @@ const Home =()=>{
 
         <section id="services">
             <div className="container">
-                <div className="row">
+                <div className="row d-flex justify-content-center">
                     <h2>SERVICES</h2>
-                    <div className="col-12 col-md-6 col-lg-4">
+                    <div className="col-12 col-md-4 col-lg-3">
                         <a href="/mobile"><img className="img-fluid" src="img/mobile.png" alt=""/>
                             <h3>APPLICATION</h3>
                         </a>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                        <a href="/physicianslist"><img className="img-fluid" src="img/doctorbis.png" alt=""/>
+                    <div className="col-12 col-md-4 col-lg-3">
+                        <a href="/find-physician"><img className="img-fluid" src="img/doctorbis.png" alt=""/>
                             <h3>TROUVER UN MEDECIN</h3>
                         </a>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                        <a href="/pharmacieslist"><img className="img-fluid" src="img/pharmacie.webp" alt=""/>
+                    <div className="col-12 col-md-4 col-lg-3">
+                        <a href="/find-pharmacy"><img className="img-fluid" src="img/pharmacie.webp" alt=""/>
                             <h3>TROUVER UNE PHARMACIE</h3>
                         </a>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-4">
+                    <div className="col-12 col-md-4 col-lg-3">
                         <a href="/delivery"><img className="img-fluid" src="img/truck1.png" alt=""/>
                             <h3>LIVRAISON</h3>
                         </a>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-4">
+                    <div className="col-12 col-md-4 col-lg-3">
                         <a href="/assistance"><img className="img-fluid" src="img/support.webp" alt=""/>
                             <h3>ASSISTANCE</h3>
                         </a>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-4">
+                    <div className="col-12 col-md-4 col-lg-3">
                         <a href="/fees"><img className="img-fluid" src="img/euro_symbol.png" alt=""/>
                             <h3>TARIFS</h3>
                         </a>
@@ -105,7 +122,7 @@ const Home =()=>{
                     </div>
                     <div className="container">
                         <div className="row">
-                            <div className="col-12 col-md-6 col-lg-4"> 
+                            <div className="col-12 col-md-6 col-lg-4" style= {{backgroundColor: "#F8D4AE"}}> 
                                 <h3>Patient J. M. de Bordeaux</h3>
                                 <p>Fini les ordonnances perdues
                                     ca laisse le temps à la pharmacie de commander un produit qu’ils n’ont pas et je n’y vais qu’une fois que tout est prêt.
@@ -117,7 +134,7 @@ const Home =()=>{
                                     Fini les ordonnances à refaire car le patient ou le pharmacien les a perdues
                                 </p>
                             </div>
-                            <div className="col-12 col-md-6 col-lg-4"> 
+                            <div className="col-12 col-md-6 col-lg-4" style= {{backgroundColor: "#F8D4AE"}}> 
                                 <h3>Pharmacien A. M. de Marseille</h3>
                                 <p>On a du temps pour préparer la commande, moins de temps à attendre pour les clients.</p>
                             </div>
@@ -125,7 +142,7 @@ const Home =()=>{
                                 <h3>Médecin B. V. de Lyon</h3>
                                 <p>Facile à utiliser</p>
                             </div>
-                            <div className="col-12 col-md-6 col-lg-4"> 
+                            <div className="col-12 col-md-6 col-lg-4" style= {{backgroundColor: "#F8D4AE"}}> 
                                 <h3>Patient B. N. de Toulouse</h3>
                                 <p>Disponible sur mon téléphone portable</p>
                             </div>

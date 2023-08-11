@@ -1,0 +1,11 @@
+.createPharmacy {
+  background-color: rgb(214, 240, 255);
+  border: solid 2px black;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin: auto;
+  width: 30rem;
+  margin-bottom: 50px;
+  box-shadow: 5px 6px 4px 0px #bbc3da;
+  border-radius: 1%;
+}/*# sourceMappingURL=CreatePharmacy.css.map */

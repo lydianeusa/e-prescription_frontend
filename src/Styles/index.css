@@ -230,6 +230,9 @@ button {
   padding: 0;
   border: none;
 }
+.btn-4 a {
+  color: white;
+}
 
 .btn-4:hover {
   background-color: #89c8d8;
@@ -314,7 +317,7 @@ button {
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
   background-color: #4dccc6;
-  background-image: linear-gradient(315deg, #f17add 0%, #e471fc 74%);
+  background-image: linear-gradient(315deg, #43f9e6 0%, #5fe4ff 74%);
   line-height: 42px;
   padding: 0;
   border: none;
@@ -429,9 +432,9 @@ button {
   position: relative;
   display: inline-block;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  outline: none;
+  outline: 1px rgb(230, 230, 230) solid;
   background-color: #4dccc6;
-  background-image: linear-gradient(315deg, #11fbff 0%, #dcfffe 74%);
+  background-image: linear-gradient(315deg, #11fbff 0%, #b0f6f4 74%);
   line-height: 42px;
   padding: 0;
   border: none;

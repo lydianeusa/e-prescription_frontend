@@ -2,6 +2,7 @@ import { useEffect, useState} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../../Layout/Header/Header";
 import Footer from "../../Layout/Footer/Footer";
+import "./UpdatePatient.css"
 
 
 const UpdatePatient = () => {
@@ -58,6 +59,10 @@ const UpdatePatient = () => {
       const last_name = event.target.last_name.value;
       const birth_date = event.target.birth_date.value;
       const email = event.target.email.value;
+      const address= event.target.address.value;
+      const zipcode= event.target.zipcode.value;
+      const city= event.target.city.value;
+      const phone_number= event.target.phone_number.value;
 
       // const token = localStorage.getItem("jwt");
 
@@ -72,6 +77,10 @@ const UpdatePatient = () => {
             last_name: last_name,
             birth_date: birth_date,
             email: email,
+            address: address,
+            zipcode: zipcode,
+            city: city,
+            phone_number: phone_number,
           }),
         }).then((response) => {
         if (response.status === 200) {
@@ -95,24 +104,40 @@ const UpdatePatient = () => {
               <>
                 <h1>Mise à jour du patient : {patient.last_name+" "+patient.first_name}</h1>
                 <form onSubmit={handleSubmit}>
-                  <div>
-                  <label htmlFor="first_name">Prénom</label><br />
-                    <input type="text" name="first_name" defaultValue={patient.first_name} />
+                  <div className="updatePatient">
+                    <div>
+                      <label htmlFor="first_name">Prénom</label><br />
+                      <input type="text" name="first_name" defaultValue={patient.first_name} />
+                    </div>
+                    <div>
+                      <label htmlFor="last_name">Nom</label><br />
+                      <input type="text" name="last_name" defaultValue={patient.last_name} />
+                    </div>
+                    <div>
+                      <label htmlFor="birth_date">Date de naissance</label><br />
+                      <input type="date" name="birth_date" defaultValue={patient.birth_date} />
+                    </div>
+                    <div>
+                      <label htmlFor="email">Email</label><br />
+                      <input type="email" name="email" defaultValue={patient.email} />
+                    </div>
+                      <label htmlFor="address">Numéro et rue</label><br />
+                      <input type="text" name="address" defaultValue={patient.address} />
+                    <div>
+                      <label htmlFor="zipcode">Code postal</label><br />
+                      <input type="number" name="zipcode" defaultValue={patient.zipcode} />
+                    </div>
+                    <div>
+                      <label htmlFor="city">Ville</label><br />
+                      <input type="text" name="city" defaultValue={patient.city} />
+                    </div>
+                    <div>
+                      <label htmlFor="phone_number">Téléphone</label><br />
+                      <input type="number" name="phone_number" defaultValue={patient.phone_number} />
+                    </div>
+        
+                    <button type="submit" className="btn-6">Mettre à jour les informations du patient</button>
                   </div>
-                  <div>
-                  <label htmlFor="last_name">Nom</label><br />
-                    <input type="text" name="last_name" defaultValue={patient.last_name} />
-                  </div>
-                  <div>
-                  <label htmlFor="birth_date">Date de naissance</label><br />
-                    <input type="date" name="birth_date" defaultValue={patient.birth_date} />
-                  </div>
-                  <div>
-                  <label htmlFor="email">Email</label><br />
-                    <input type="text" name="email" defaultValue={patient.email} />
-                  </div>
-      
-                  <button type="submit" className="btn-6">Mettre à jour les informations du patient</button>
                 </form>
               </>
             ) : (

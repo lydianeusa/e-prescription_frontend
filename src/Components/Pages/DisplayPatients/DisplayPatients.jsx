@@ -54,15 +54,16 @@ const DisplayPatients = ()=>{
             <Header/>
             <main>
                 <h1>Liste des Patients</h1>
-
-                {patientsData.map((patient) => {
-                    return (
-                    <div key={patient.id}>
-                        <h2>{patient.first_name +" "+patient.last_name}</h2>
-                        <Link to={`/patient/${patient.id}`}>Voir le patient</Link>
-                    </div>    
-                    );
-                })}
+                <div className="displayPatients">
+                    {patientsData.map((patient) => {
+                        return (
+                        <div key={patient.id}>
+                            <h2>{patient.first_name +" "+patient.last_name}</h2>
+                            <Link to={`/patient/${patient.id}`}><button className="btn-2">Voir le patient</button></Link>
+                        </div>    
+                        );
+                    })}
+                </div>
             </main>
             <Footer/>
         </>

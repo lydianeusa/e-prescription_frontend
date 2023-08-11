@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate} from "react-router-dom";
 import Header from "../../Layout/Header/Header";
 import Footer from "../../Layout/Footer/Footer";
+import "./UpdatePrescription.css"
 
 const UpdatePrescription = () => {
   const navigate = useNavigate();
@@ -28,7 +29,8 @@ const UpdatePrescription = () => {
   }, [navigate]);
 
 
-  const [prescription, setPrescription]= useState (null)
+  const [prescription, setPrescription]= useState (null);
+  const [prescriptionModified, setPrescriptionModified] = useState(false);
 
   const { id } = useParams();
 
@@ -70,47 +72,64 @@ const UpdatePrescription = () => {
       }).then((response) => {
         if (response.status === 200) {
           console.log("ordonnance modifiée");
+          setPrescriptionModified(true);
         } else {
           console.log("erreur");
         }
       });
     };
 
-    
+    const handleDeleteClick = (prescription) => {
+      fetch("http://localhost:3001/api/prescriptions/" + prescription.id, {
+          method: "DELETE",
+          headers: {"Authorization": `Bearer ${token}`},
+      })
+      .then(() => {
+          navigate(0);
+      })
+      .catch((error) => {
+          console.log(error);
+      });
+  };
 
     return (
         <>
           <Header/>
-          <main>
+          <main className="modifyPrescription">
             {prescription ? (
               <>
                 <h1>Mise à jour l'ordonnance :</h1>
                 <form onSubmit={handleSubmit}>
-                  <div>
-                  <label htmlFor="medicine_name">Nom du médicament</label><br />
-                    <input type="text" name="medicine_name" defaultValue={prescription.medicine_name} />
-                  </div>
-                  <div>
-                  <label htmlFor="dosage">Dosage</label><br />
-                    <input type="text" name="dosage" defaultValue={prescription.dosage} />
-                  </div>
-                  <div>
-                  <label htmlFor="frequency">Fréquence</label><br />
-                    <input type="text" name="frequency" defaultValue={prescription.frequency} />
-                  </div>
-                  <div>
-                  <label htmlFor="duration">Durée</label><br />
-                    <input type="text" name="duration" defaultValue={prescription.duration} />
-                  </div>
+                  <div className="updatePrescription">
+                    <div>
+                    <label htmlFor="medicine_name">Nom du médicament</label><br />
+                      <input type="text" name="medicine_name" defaultValue={prescription.medicine_name} />
+                    </div>
+                    <div>
+                    <label htmlFor="dosage">Dosage</label><br />
+                      <input type="text" name="dosage" defaultValue={prescription.dosage} />
+                    </div>
+                    <div>
+                    <label htmlFor="frequency">Fréquence</label><br />
+                      <input type="text" name="frequency" defaultValue={prescription.frequency} />
+                    </div>
+                    <div>
+                    <label htmlFor="duration">Durée</label><br />
+                      <input type="text" name="duration" defaultValue={prescription.duration} />
+                    </div>
+                 
       
                   <button type="submit" className="btn-4">Mettre à jour l'ordonnance</button>
+                  </div>
                 </form>
-                {/* <button onClick ={() => handleDeleteClick(prescription)} className="btn-3">Supprimer l'ordonnance</button> */}
+                <button onClick ={() => handleDeleteClick(prescription)} className="btn-3">Supprimer l'ordonnance</button>
               </>
             ) : (
               <p>L'ordonnance a été supprimée de la base de données.</p>
             )}
+          {prescriptionModified && <p>L'ordonnance a été modifiée</p>}
           </main>
+ 
           <Footer/>
       </>
     )

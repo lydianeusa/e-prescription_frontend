@@ -1,10 +1,23 @@
 #banner {
-  background-image: url("/public/img/banner.png");
-  color: white;
+  color: rgb(19, 7, 110);
+  padding-top: 0;
+  position: relative;
 }
 #banner h1 {
   font-weight: bold;
   font-size: 2rem;
+  color: white;
+  padding-top: 7rem;
+}
+#banner #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #10074b;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: -1;
 }
 #banner .mobile {
   display: flex;
@@ -13,6 +26,7 @@
 }
 #banner img {
   width: 15rem;
+  padding-top: 3rem;
 }
 #banner button {
   border-radius: 10px;
@@ -42,14 +56,21 @@
 
 #services {
   margin-top: 5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+#services .col-12 {
+  border: 1px solid #ccc; /* Add border to each column */
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out; /* Smooth transition for background color change */
+  padding-top: 2rem;
+  margin: 1rem;
+  background-color: #e1fafc;
+  background-image: linear-gradient(315deg, #b7feff 0%, #b8ddf9 74%);
+  box-shadow: 2px 2px 4px;
 }
 #services img {
   width: 100px;
   height: 100px;
-}
-#services img:hover {
-  background-color: purple;
 }
 #services h2 {
   padding: 40px;
@@ -60,11 +81,13 @@
 #services a:hover {
   color: purple;
 }
+#services .col-12:hover {
+  background-color: #f2f2f2;
+  background-image: linear-gradient(315deg, #e5f8f9 0%, #e7c3fd 74%);
+}
 
 #testimonials div {
-  padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 30px;
 }
 #testimonials h3 {
   color: purple;

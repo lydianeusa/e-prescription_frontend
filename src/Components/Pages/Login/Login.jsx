@@ -31,10 +31,13 @@ const Login= () => {
           const roles = data.user.roles;
           localStorage.setItem("jwt", jwt); // Je stocke le token dans le localStorage
           localStorage.setItem("roles", JSON.stringify (roles));
-          console.log(roles)
+          // console.log(roles)
+          if (roles.includes("patient")) {
+            const patientId = data.user.Patients[0].id; // Access the patient ID from the Patients array
+            localStorage.setItem("patientId", patientId);
+            console.log("patientId:", patientId);
+        }
           navigate ("/")
-
-          // window.location.href = "http://localhost:3000/"; // Redirection vers la page account
       } 
     else {
       console.log("erreur");

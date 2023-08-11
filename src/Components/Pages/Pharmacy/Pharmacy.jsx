@@ -7,6 +7,7 @@ const Pharmacy =()=>{
   return(
     <>
       <Header/>
+      <main>
       <div  className="pharmacy">
         <div className="container">
           <div className="row">
@@ -19,6 +20,7 @@ const Pharmacy =()=>{
           </div>
         </div>
       </div>
+      </main>
       <Footer/>
     </>
   )

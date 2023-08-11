@@ -15,8 +15,6 @@ const Footer= () => {
                         <li><a href="/fees">Tarifs</a></li>
                         <li><a href="/delivery">Livraisons</a></li>
                         <li><a href="/mobile">Application mobile</a></li>
-                        <li><a href="/physicianslist">Trouver un médecin</a></li>
-                        <li><a href="/pharmacieslist">Trouver une pharmacie</a></li>
                     </ul>
                 </div>
                 <div className="col-12 col-md-4 text-center">
