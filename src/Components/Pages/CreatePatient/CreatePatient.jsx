@@ -1,33 +1,29 @@
 import Header from "../../Layout/Header/Header";
 import Footer from "../../Layout/Footer/Footer";
 import { useNavigate } from "react-router-dom";
-import React, { useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import "./CreatePatient.css";
 
 
 const CreatePatient = ()=>{
 
   const navigate = useNavigate();
-  // Autorisation JWT
   useEffect(() => {
       const token = localStorage.getItem("jwt");
       if (!token) {
           navigate("/login");
           return;
       }
-      // Décode le token JWT pour récupérer la date d'expiration
       const jwtData = token.split(".")[1];
-      const decodedJwt = JSON.parse(atob(jwtData));
-      const expirationTime = decodedJwt.exp * 1000; // Convertit la date d'expiration en millisecondes
-
-      // Redirige vers la page de connexion lorsque le jeton expire
+      const decodedJwt = JSON.parse(window.atob(jwtData));
+      const expirationTime = decodedJwt.exp * 1000;
       const timeoutId = setTimeout(() => {
           navigate("/login");
-      }, expirationTime - Date.now()); // Définit le délai en millisecondes avant la redirection
-
-      // Nettoie le timeout lorsque le composant est démonté
+      }, expirationTime - Date.now()); 
       return () => clearTimeout(timeoutId);
   }, [navigate]);
+
+  const [patientCreated, setPatientCreated] = useState(false);
 
   const handleSubmit=(event)=>{
     event.preventDefault();
@@ -42,8 +38,7 @@ const CreatePatient = ()=>{
     const phone_number= event.target.phone_number.value;
     const username= event.target.username.value;
     const password= event.target.password.value;
-
-    // Récupère le jeton JWT stocké dans le local storage   
+  
     const token = localStorage.getItem("jwt");
 
     fetch("http://localhost:3001/api/patients", {
@@ -64,15 +59,17 @@ const CreatePatient = ()=>{
         username: username,
         password: password,
       })
-    })
-    .then((response) => {
-      if (response.status === 200) {
-        console.log("patient créé");
-      } else {alert('connectez-vous')
-        console.log("erreur");
-      }
-    });
-  };
+  }).then((response) => {
+    if (response.status === 200) {
+      console.log("patient créé");
+      setPatientCreated(true);
+    } else {
+      console.log("erreur");
+      setPatientCreated(false);
+    }
+  });
+};
+
 
   
   return (
@@ -123,6 +120,8 @@ const CreatePatient = ()=>{
         </div>
         <button className="btn-2" type="submit">Envoyer</button>
       </form>
+      
+      {patientCreated && <p>Le patient a été créé.</p>}
     </main>
     <Footer/>
     </div>

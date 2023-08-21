@@ -7,7 +7,7 @@
   font-weight: bold;
   font-size: 2rem;
   color: white;
-  padding-top: 7rem;
+  padding-top: 10rem;
 }
 #banner #particles-js {
   position: absolute;
@@ -86,8 +86,19 @@
   background-image: linear-gradient(315deg, #e5f8f9 0%, #e7c3fd 74%);
 }
 
-#testimonials div {
-  padding: 30px;
+#testimonials {
+  margin-bottom: 6rem;
+  margin-top: 6rem;
+}
+#testimonials .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#testimonials .testimonial {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 #testimonials h3 {
   color: purple;

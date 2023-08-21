@@ -8,7 +8,7 @@
         font-weight: bold;
         font-size: 2rem;
         color: white;
-        padding-top: 7rem;
+        padding-top: 10rem;
     }
 
 
@@ -107,12 +107,22 @@
 }
 
 #testimonials{
-    div{
-        padding: 30px;
-        // height: 5rem;
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
+
+    .testimonial {
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
     h3{
         color: purple;
     }
+    margin-bottom: 6rem;
+    margin-top: 6rem;
 }
 

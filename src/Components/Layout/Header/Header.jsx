@@ -11,8 +11,6 @@ const Header = () => {
 
   const navigate = useNavigate();
   const token = localStorage.getItem("jwt");
-  // console.log("Token:", token);
-
   const [roles, setRoles] = useState([]);
   const [user, setUser] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -22,14 +20,9 @@ const Header = () => {
     try {
       if (token) {
         const decodedToken = jwt_decode(token);
-        // console.log("Decoded Token:", decodedToken);
         setDecodedToken(decodedToken);
-  
-        // Extract user roles and store in the state
         const userRoles = decodedToken && decodedToken.role ? [decodedToken.role] : [];
         setRoles(userRoles);
-  
-        // Extract user information, including the username, and store in the state
         const user = decodedToken && decodedToken.data ? decodedToken.data : null;
         setUser(user);
       } else {
@@ -38,17 +31,12 @@ const Header = () => {
         setUser(null); // Set user to null if no token is available
       }
     } catch (error) {
-      // console.error("Error decoding JWT token:", error);
       setDecodedToken(null); // Set user to null in case of an error
       setRoles([]); // Set roles to an empty array in case of an error
       setUser(null); // Set user to null in case of an error
     }
   }, [token]);
   
-
-  // Decode the JWT token to get the user information
-  // console.log("User object:", user);
-  // console.log("Username:", user && user.username);
 
   const handleLogOut = () => {
     localStorage.removeItem("jwt");
@@ -72,11 +60,10 @@ const Header = () => {
     })
     .then((response) => response.json())
     .then((data) => {
-      setSearchUserResults(data.data); // Update the search results state with the fetched data
+      setSearchUserResults(data.data); 
     })
     .catch((error) => {
-      // console.error("Error fetching patients:", error);
-      setSearchUserResults([]); // If there is an error, set the search results to an empty array
+      setSearchUserResults([]); 
     });
   }
 
@@ -129,7 +116,6 @@ const Header = () => {
                       <NavDropdown.Item href="/fees" className="dropdown">Tarifs</NavDropdown.Item>
                       <NavDropdown.Item href="/delivery" className="dropdown">Livraisons</NavDropdown.Item>
                     </NavDropdown>
-                      {/* Display content based on user roles */}
                       {roles.includes("pharmacist") && (
                         <Nav.Link href="/pharmacy" className="menu">Pharmacien</Nav.Link>
                       )}

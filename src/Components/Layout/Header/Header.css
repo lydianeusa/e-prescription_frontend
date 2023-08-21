@@ -1,6 +1,8 @@
 header {
   text-align: center;
   height: 150px;
+  position: relative;
+  z-index: 1;
 }
 header img {
   height: 120px;

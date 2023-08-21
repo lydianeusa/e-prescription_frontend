@@ -83,7 +83,7 @@ const FindAPatient = () => {
         {showPatientInfo ? (
           <>
             {patients.map((patient) => (
-              <div key={patient.id}>
+              <div key={patient.id} className="findAPatient">
                 <p>{patient.last_name} {patient.first_name}</p>
                 <button className="btn-4"><Link to={`/patient/${patient.id}`}>Voir le patient</Link></button>
               </div>

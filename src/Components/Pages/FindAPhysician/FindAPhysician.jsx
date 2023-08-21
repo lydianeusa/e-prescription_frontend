@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../../Layout/Header/Header";
 import Footer from "../../Layout/Footer/Footer";
 import "./FindAPhysician.css"
@@ -8,6 +9,7 @@ const FindAPhysician = () => {
     const [searchPhysician, setSearchPhysician] = useState("");
     const [showPhysicianInfo, setShowPhysicianInfo] = useState(false);
     const [noPhysicianFound, setNoPhysicianFound] = useState(false);
+    const roles = localStorage.getItem("roles");
   
     const handleSearch = (e) => {
       e.preventDefault();
@@ -35,18 +37,20 @@ const FindAPhysician = () => {
         });
     };
 
+    const isAdmin = roles && roles.includes("admin");
+
     return (
         <>
         <Header />
         <main className="searchPhysician">
           <h1>Trouver un médecin</h1>
-          <h2>par nom ou spécialité ou ville</h2>
+          <h2>(par nom ou ville)</h2>
           <form onSubmit={handleSearch}>
             <input
               type="text"
               value={searchPhysician}
               onChange={(e) => setSearchPhysician(e.target.value)}
-              placeholder="Chercher Physician"
+              placeholder="Chercher médecin"
             />
             <br />
             <button className="btn-2" type="submit">
@@ -62,6 +66,14 @@ const FindAPhysician = () => {
                   <p>{physician?.address}</p>
                   <p>{physician?.zipcode}</p>
                   <p>{physician?.city}</p>
+                  {isAdmin && (
+                <>
+                  <button className="btn-5">
+                    <Link to={`/physician/${physician.id}/update`}>Modifier le médecin</Link>
+                  </button>
+
+                </>
+              )}
                 </div>
               ))
             ) : (

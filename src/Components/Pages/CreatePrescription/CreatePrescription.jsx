@@ -9,24 +9,18 @@ const CreatePrescription = ()=>{
 
 
   const navigate = useNavigate();
-  // Autorisation JWT
   useEffect(() => {
       const token = localStorage.getItem("jwt");
       if (!token) {
           navigate("/login");
           return;
       }
-      // Décode le token JWT pour récupérer la date d'expiration
       const jwtData = token.split(".")[1];
       const decodedJwt = JSON.parse(atob(jwtData));
-      const expirationTime = decodedJwt.exp * 1000; // Convertit la date d'expiration en millisecondes
-
-      // Redirige vers la page de connexion lorsque le jeton expire
+      const expirationTime = decodedJwt.exp * 1000; 
       const timeoutId = setTimeout(() => {
           navigate("/login");
-      }, expirationTime - Date.now()); // Définit le délai en millisecondes avant la redirection
-
-      // Nettoie le timeout lorsque le composant est démonté
+      }, expirationTime - Date.now()); 
       return () => clearTimeout(timeoutId);
   }, [navigate]);
 

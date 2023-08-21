@@ -87,6 +87,19 @@ const UpdatePhysician = () => {
       });
     };
 
+      const handleDeleteClick = (physician) => {
+      fetch("http://localhost:3001/api/physicians/" + physician.id, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then(() => {
+          navigate(0);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
     
 
     return (
@@ -137,6 +150,9 @@ const UpdatePhysician = () => {
                     <button type="submit" className="btn-6">Mettre à jour les informations du médecin</button>
                   </div>
                 </form>
+                <button className="btn-3" onClick={() => handleDeleteClick(physician)}>
+                    Supprimer le médecin                
+                </button>
               </>
             ) : (
               <p>Le médecin a été supprimé de la base de données.</p>

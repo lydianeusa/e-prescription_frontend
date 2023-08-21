@@ -76,8 +76,8 @@ const UpdatePharmacy = () => {
             city: city,
             phone_number: phone_number,
             verification_number: verification_number
-          }),
-        }).then((response) => {
+        }),
+      }).then((response) => {
         if (response.status === 200) {
           console.log("information de la pharmacie modifiée");
           setPharmacyModified(true);
@@ -86,6 +86,19 @@ const UpdatePharmacy = () => {
           setPharmacyModified(false);
         }
       });
+    };
+
+    const handleDeleteClick = (pharmacy) => {
+      fetch("http://localhost:3001/api/pharmacies/" + pharmacy.id, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then(() => {
+          navigate(0);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     };
 
     return (
@@ -127,6 +140,10 @@ const UpdatePharmacy = () => {
                     <button type="submit" className="btn-6">Mettre à jour les informations</button>
                   </div>
                 </form>
+                
+                <button className="btn-3" onClick={() => handleDeleteClick(pharmacy)}>
+                    Supprimer le pharmacie
+                </button>
               </>
             ) : (
               <p>La pharmacie a été supprimé de la base de données.</p>

@@ -122,33 +122,33 @@ const Home =()=>{
                     </div>
                     <div className="container">
                         <div className="row">
-                            <div className="col-12 col-md-6 col-lg-4" style= {{backgroundColor: "#F8D4AE"}}> 
+                            <div className="col-12 col-md-6 col-lg-4 testimonial" style= {{backgroundColor: "#F8D4AE"}}> 
                                 <h3>Patient J. M. de Bordeaux</h3>
                                 <p>Fini les ordonnances perdues
                                     ca laisse le temps à la pharmacie de commander un produit qu’ils n’ont pas et je n’y vais qu’une fois que tout est prêt.
                                 </p>
                             </div>
-                            <div className="col-12 col-md-6 col-lg-4"> 
+                            <div className="col-12 col-md-6 col-lg-4 testimonial"> 
                                 <h3>Médecin B. L. de Béziers</h3>
                                 <p>
-                                    Fini les ordonnances à refaire car le patient ou le pharmacien les a perdues
+                                    Fini les ordonnances à refaire car le patient ou le pharmacien les a perdues.
                                 </p>
                             </div>
-                            <div className="col-12 col-md-6 col-lg-4" style= {{backgroundColor: "#F8D4AE"}}> 
+                            <div className="col-12 col-md-6 col-lg-4 testimonial" style= {{backgroundColor: "#F8D4AE"}}> 
                                 <h3>Pharmacien A. M. de Marseille</h3>
-                                <p>On a du temps pour préparer la commande, moins de temps à attendre pour les clients.</p>
+                                <p>Véracité des informations de l'ordonnance;</p>
                             </div>
-                            <div className="col-12 col-md-6 col-lg-4"> 
+                            <div className="col-12 col-md-6 col-lg-4 testimonial"> 
                                 <h3>Médecin B. V. de Lyon</h3>
                                 <p>Facile à utiliser</p>
                             </div>
-                            <div className="col-12 col-md-6 col-lg-4" style= {{backgroundColor: "#F8D4AE"}}> 
+                            <div className="col-12 col-md-6 col-lg-4 testimonial" style= {{backgroundColor: "#F8D4AE"}}> 
                                 <h3>Patient B. N. de Toulouse</h3>
-                                <p>Disponible sur mon téléphone portable</p>
+                                <p>Disponible sur mon téléphone portable.</p>
                             </div>
-                            <div className="col-12 col-md-6 col-lg-4"> 
+                            <div className="col-12 col-md-6 col-lg-4 testimonial"> 
                                 <h3>Pharmacien N. X. de Narbonne</h3>
-                                <p>Véracité des informations</p>
+                                <p>On a du temps pour préparer la commande, moins de temps à attendre pour les clients.</p>
                             </div>
                         </div>
                     </div>

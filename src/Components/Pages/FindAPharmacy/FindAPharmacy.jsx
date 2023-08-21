@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../../Layout/Header/Header";
 import Footer from "../../Layout/Footer/Footer";
 import "./FindAPharmacy.css"
@@ -8,6 +9,7 @@ const FindAPharmacy = () => {
   const [searchPharmacy, setSearchPharmacy] = useState("");
   const [showPharmacyInfo, setShowPharmacyInfo] = useState(false);
   const [noPharmacyFound, setNoPharmacyFound] = useState(false);
+  const roles = localStorage.getItem("roles");
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -34,6 +36,8 @@ const FindAPharmacy = () => {
         setNoPharmacyFound(true);
       });
   };
+
+  const isAdmin = roles && roles.includes("admin");
 
   return (
     <>
@@ -62,6 +66,14 @@ const FindAPharmacy = () => {
                 <p>{pharmacy?.zipcode} {pharmacy?.city}</p>
                 <p>{pharmacy?.phone_number}</p>
                 <p>{pharmacy?.email}</p>
+                {isAdmin && (
+                <>
+                  <button className="btn-5">
+                    <Link to={`/pharmacy/${pharmacy.id}/update`}>Modifier la pharmacie</Link>
+                  </button>
+
+                </>
+              )}
               </div>
             ))
           ) : (
